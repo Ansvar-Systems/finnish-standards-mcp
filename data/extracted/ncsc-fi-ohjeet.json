@@ -1,0 +1,467 @@
+{
+  "framework": {
+    "id": "ncsc-fi-ohjeet",
+    "name": "NCSC-FI Cybersecurity Guidelines",
+    "name_nl": "NCSC-FI Kyberturvallisuusohjeet",
+    "issuing_body": "Liikenne- ja viestintavirasto Traficom / NCSC-FI (Kyberturvallisuuskeskus)",
+    "version": "2024",
+    "effective_date": "2024-01-01",
+    "scope": "Cybersecurity guidelines published by the Finnish National Cyber Security Centre (NCSC-FI) under Traficom. Covers organizational cybersecurity, website security, email security, cloud security, remote work, mobile devices, and industrial automation.",
+    "scope_sectors": [
+      "government",
+      "energy",
+      "telecom",
+      "transport",
+      "water",
+      "digital_infrastructure"
+    ],
+    "structure_description": "Organized by cybersecurity domain: organizational, web, email, cloud, remote work, mobile, industrial automation, and general guidelines.",
+    "source_url": "https://www.kyberturvallisuuskeskus.fi/fi/ohjeet-ja-oppaat",
+    "license": "Public sector publication",
+    "language": "fi+en"
+  },
+  "controls": [
+    {
+      "control_number": "ORG-01",
+      "title_nl": "Kyberturvallisuusstrategia",
+      "title": "Cybersecurity strategy",
+      "description_nl": "Organisaation on laadittava kyberturvallisuusstrategia, joka tukee liiketoimintastrategiaa ja maarittelee kyberturvallisuuden tavoitteet.",
+      "description": "The organization shall develop a cybersecurity strategy aligned with business strategy, defining cybersecurity objectives.",
+      "category": "Organisaation kyberturvallisuus",
+      "iso_mapping": "5.1",
+      "source_url": "https://www.kyberturvallisuuskeskus.fi/fi/ohjeet-ja-oppaat"
+    },
+    {
+      "control_number": "ORG-02",
+      "title_nl": "Kyberturvallisuuden hallintamalli",
+      "title": "Cybersecurity governance model",
+      "description_nl": "Organisaation on maariteltava kyberturvallisuuden hallintamalli, joka sisaltaa vastuut, roolit ja raportointirakenteet.",
+      "description": "The organization shall define a cybersecurity governance model including responsibilities, roles, and reporting structures.",
+      "category": "Organisaation kyberturvallisuus",
+      "iso_mapping": "5.2"
+    },
+    {
+      "control_number": "ORG-03",
+      "title_nl": "Kyberturvallisuuden resursointi",
+      "title": "Cybersecurity resourcing",
+      "description_nl": "Kyberturvallisuudelle on varattava riittavat taloudelliset, tekniset ja henkilostoresurssit.",
+      "description": "Sufficient financial, technical, and personnel resources shall be allocated for cybersecurity.",
+      "category": "Organisaation kyberturvallisuus",
+      "iso_mapping": "5.2"
+    },
+    {
+      "control_number": "ORG-04",
+      "title_nl": "Kyberriskien arviointi",
+      "title": "Cyber risk assessment",
+      "description_nl": "Kyberturvallisuusriskit on arvioitava saannollisesti ja arvioinnin tulosten perusteella on toteutettava riskienkasittelytoimenpiteita.",
+      "description": "Cybersecurity risks shall be assessed regularly and risk treatment actions implemented based on assessment results.",
+      "category": "Organisaation kyberturvallisuus",
+      "iso_mapping": "5.3"
+    },
+    {
+      "control_number": "ORG-05",
+      "title_nl": "Kyberturvallisuustietoisuus",
+      "title": "Cybersecurity awareness",
+      "description_nl": "Henkiloston kyberturvallisuustietoisuutta on yllapidettava koulutuksella ja tiedotuksella. Koulutus on kohdennettava tehtavien mukaan.",
+      "description": "Personnel cybersecurity awareness shall be maintained through training and communication. Training shall be targeted according to roles.",
+      "category": "Organisaation kyberturvallisuus",
+      "iso_mapping": "6.3"
+    },
+    {
+      "control_number": "ORG-06",
+      "title_nl": "Kyberturvallisuusharjoitukset",
+      "title": "Cybersecurity exercises",
+      "description_nl": "Organisaation on jarjestettava saannollisia kyberturvallisuusharjoituksia, joissa testataan reagointikyky erilaisiin uhkaskenaarioihin.",
+      "description": "The organization shall conduct regular cybersecurity exercises to test response capability against various threat scenarios.",
+      "category": "Organisaation kyberturvallisuus",
+      "iso_mapping": "5.24"
+    },
+    {
+      "control_number": "ORG-07",
+      "title_nl": "Toimitusketjun kyberturvallisuus",
+      "title": "Supply chain cybersecurity",
+      "description_nl": "Toimitusketjun kyberturvallisuusriskit on tunnistettava ja hallittava. Toimittajien kyberturvallisuuskypsyys on arvioitava.",
+      "description": "Supply chain cybersecurity risks shall be identified and managed. Supplier cybersecurity maturity shall be assessed.",
+      "category": "Organisaation kyberturvallisuus",
+      "iso_mapping": "5.19"
+    },
+    {
+      "control_number": "ORG-08",
+      "title_nl": "Kyberuhkien seuranta",
+      "title": "Cyber threat monitoring",
+      "description_nl": "Organisaation on seurattava kyberuhkatilannetta aktiivisesti ja hyodynnettava uhkatietoa turvallisuuspaatosten tukena.",
+      "description": "The organization shall actively monitor the cyber threat landscape and use threat intelligence to support security decisions.",
+      "category": "Organisaation kyberturvallisuus",
+      "iso_mapping": "5.7"
+    },
+    {
+      "control_number": "WEB-01",
+      "title_nl": "HTTPS-kaytto",
+      "title": "HTTPS usage",
+      "description_nl": "Kaikki verkkopalvelut on tarjottava HTTPS-protokollan kautta. HTTP-yhteydet on ohjattava automaattisesti HTTPS-yhteydelle.",
+      "description": "All web services shall be provided over HTTPS. HTTP connections shall be automatically redirected to HTTPS.",
+      "category": "Verkkosivujen turvallisuus",
+      "iso_mapping": "8.24"
+    },
+    {
+      "control_number": "WEB-02",
+      "title_nl": "TLS-konfiguraatio",
+      "title": "TLS configuration",
+      "description_nl": "TLS-konfiguraation on noudatettava ajanmukaisia suosituksia. Vanhat TLS-versiot (1.0, 1.1) on poistettava kaytosta.",
+      "description": "TLS configuration shall follow current recommendations. Legacy TLS versions (1.0, 1.1) shall be disabled.",
+      "category": "Verkkosivujen turvallisuus",
+      "iso_mapping": "8.24"
+    },
+    {
+      "control_number": "WEB-03",
+      "title_nl": "HTTP-turvallisuusotsikot",
+      "title": "HTTP security headers",
+      "description_nl": "Verkkopalveluissa on kaytettava turvallisuusotsikoita: Content-Security-Policy, X-Content-Type-Options, X-Frame-Options, Strict-Transport-Security.",
+      "description": "Web services shall use security headers: Content-Security-Policy, X-Content-Type-Options, X-Frame-Options, Strict-Transport-Security.",
+      "category": "Verkkosivujen turvallisuus",
+      "iso_mapping": "8.25"
+    },
+    {
+      "control_number": "WEB-04",
+      "title_nl": "Syotteiden validointi",
+      "title": "Input validation",
+      "description_nl": "Kaikki kayttajasyotteet on validoitava palvelinpuolella. Syotteiden validoinnilla estettava XSS-, SQL-injektio- ja muut injektiohyokkaykset.",
+      "description": "All user inputs shall be validated server-side. Input validation shall prevent XSS, SQL injection, and other injection attacks.",
+      "category": "Verkkosivujen turvallisuus",
+      "iso_mapping": "8.25"
+    },
+    {
+      "control_number": "WEB-05",
+      "title_nl": "Istunnonhallinta",
+      "title": "Session management",
+      "description_nl": "Istunnonhallinta on toteutettava turvallisesti: satunnaiset istuntotunnisteet, aikakatkaisu, turvallinen evastekaytanto.",
+      "description": "Session management shall be implemented securely: random session identifiers, timeouts, secure cookie policies.",
+      "category": "Verkkosivujen turvallisuus",
+      "iso_mapping": "8.5"
+    },
+    {
+      "control_number": "WEB-06",
+      "title_nl": "CSRF-suojaus",
+      "title": "CSRF protection",
+      "description_nl": "Verkkopalvelut on suojattava CSRF-hyokkaykselta kayttamalla tokenipohjaista suojausta tai muita hyvaksyttyja menetelmia.",
+      "description": "Web services shall be protected against CSRF attacks using token-based protection or other approved methods.",
+      "category": "Verkkosivujen turvallisuus",
+      "iso_mapping": "8.25"
+    },
+    {
+      "control_number": "WEB-07",
+      "title_nl": "Virheidenkasittely",
+      "title": "Error handling",
+      "description_nl": "Virhetilanteet on kasiteltava turvallisesti. Virheilmoitukset eivat saa paljastaa jarjestelman sisaista tietoa.",
+      "description": "Error conditions shall be handled securely. Error messages shall not reveal system internal information.",
+      "category": "Verkkosivujen turvallisuus",
+      "iso_mapping": "8.25"
+    },
+    {
+      "control_number": "WEB-08",
+      "title_nl": "Tiedostojen lataus",
+      "title": "File upload security",
+      "description_nl": "Tiedostojen lataaminen palvelimelle on rajoitettava ja ladattavat tiedostot on tarkistettava haittaohjelmien varalta.",
+      "description": "File upload to servers shall be restricted and uploaded files shall be scanned for malware.",
+      "category": "Verkkosivujen turvallisuus",
+      "iso_mapping": "8.7"
+    },
+    {
+      "control_number": "WEB-09",
+      "title_nl": "Rajapintojen turvallisuus",
+      "title": "API security",
+      "description_nl": "Rajapinnat on suojattava todennuksella ja valtuuttamisella. Rajapintakutsut on rajoitettava ylikuormituksen estamiseksi.",
+      "description": "APIs shall be secured with authentication and authorization. API calls shall be rate-limited to prevent overload.",
+      "category": "Verkkosivujen turvallisuus",
+      "iso_mapping": "8.25"
+    },
+    {
+      "control_number": "WEB-10",
+      "title_nl": "Verkkopalvelun saatavuus",
+      "title": "Web service availability",
+      "description_nl": "Verkkopalveluiden saatavuus on varmistettava DDoS-suojauksella, kuormantasauksella ja varajarjestelyilla.",
+      "description": "Web service availability shall be ensured with DDoS protection, load balancing, and backup arrangements.",
+      "category": "Verkkosivujen turvallisuus",
+      "iso_mapping": "8.6"
+    },
+    {
+      "control_number": "EML-01",
+      "title_nl": "SPF-tietue",
+      "title": "SPF record",
+      "description_nl": "Organisaation sahkopostidomainille on maariteltava SPF-tietue, joka rajaa valtuutetut lahettavat palvelimet.",
+      "description": "An SPF record shall be defined for the organization email domain, limiting authorized sending servers.",
+      "category": "Sahkopostin turvallisuus",
+      "iso_mapping": "8.23"
+    },
+    {
+      "control_number": "EML-02",
+      "title_nl": "DKIM-allekirjoitus",
+      "title": "DKIM signing",
+      "description_nl": "Lahtevat sahkopostiviestit on allekirjoitettava DKIM-allekirjoituksella lahettajan aitouden varmistamiseksi.",
+      "description": "Outgoing email messages shall be signed with DKIM to verify sender authenticity.",
+      "category": "Sahkopostin turvallisuus",
+      "iso_mapping": "8.23"
+    },
+    {
+      "control_number": "EML-03",
+      "title_nl": "DMARC-kaytantopolitiikka",
+      "title": "DMARC policy",
+      "description_nl": "DMARC-kaytantopolitiikka on maariteltava ja raportointi otettava kayttoon. Tavoitteena on p=reject-kaytanto.",
+      "description": "A DMARC policy shall be defined and reporting enabled. The target shall be p=reject policy.",
+      "category": "Sahkopostin turvallisuus",
+      "iso_mapping": "8.23"
+    },
+    {
+      "control_number": "EML-04",
+      "title_nl": "Sahkopostin salaus",
+      "title": "Email encryption",
+      "description_nl": "Salassa pidettavien tietojen lahettamiseen sahkopostilla on kaytettava salausta (S/MIME tai PGP).",
+      "description": "Encryption (S/MIME or PGP) shall be used for sending classified information via email.",
+      "category": "Sahkopostin turvallisuus",
+      "iso_mapping": "8.24"
+    },
+    {
+      "control_number": "EML-05",
+      "title_nl": "Roskapostisuodatus",
+      "title": "Spam filtering",
+      "description_nl": "Sahkopostiin on toteutettava roskapostisuodatus ja haittaohjelmien torjunta.",
+      "description": "Spam filtering and malware protection shall be implemented for email.",
+      "category": "Sahkopostin turvallisuus",
+      "iso_mapping": "8.7"
+    },
+    {
+      "control_number": "EML-06",
+      "title_nl": "Tietojenkalastelun torjunta",
+      "title": "Phishing prevention",
+      "description_nl": "Tietojenkalasteluhyokkaysten torjuntaan on kaytettava teknisia ja organisatorisia keinoja, kuten kayttajakoulutusta ja automaattista tunnistusta.",
+      "description": "Technical and organizational measures shall be used to prevent phishing attacks, including user training and automated detection.",
+      "category": "Sahkopostin turvallisuus",
+      "iso_mapping": "6.3"
+    },
+    {
+      "control_number": "PIL-01",
+      "title_nl": "Pilvipalvelun riskiarviointi",
+      "title": "Cloud service risk assessment",
+      "description_nl": "Pilvipalvelun kayttoonottoa edeltavasti on suoritettava riskiarviointi, joka kattaa tietoturva-, tietosuoja- ja saatavuusriskit.",
+      "description": "A risk assessment covering security, privacy, and availability risks shall be conducted before cloud service adoption.",
+      "category": "Pilvipalveluiden turvallisuus",
+      "iso_mapping": "5.23"
+    },
+    {
+      "control_number": "PIL-02",
+      "title_nl": "Pilvipalvelun tietosuoja",
+      "title": "Cloud service data protection",
+      "description_nl": "Pilvipalvelussa kasiteltavien tietojen sijainti ja kasittelyn oikeusperuste on selvitettava. EU/ETA-alueen ulkopuolinen kasittely edellyttaa lisisuojatoimia.",
+      "description": "The location of data processed in cloud services and the legal basis shall be determined. Processing outside EU/EEA requires additional safeguards.",
+      "category": "Pilvipalveluiden turvallisuus",
+      "iso_mapping": "5.34"
+    },
+    {
+      "control_number": "PIL-03",
+      "title_nl": "Pilvipalvelun paasynhallinta",
+      "title": "Cloud service access management",
+      "description_nl": "Pilvipalveluiden kayttooikeudet on hallittava keskitetysti. Monivaiheinen todennus on vaadittava yllapitokayttajilta.",
+      "description": "Cloud service access rights shall be managed centrally. Multi-factor authentication shall be required for administrator accounts.",
+      "category": "Pilvipalveluiden turvallisuus",
+      "iso_mapping": "8.5"
+    },
+    {
+      "control_number": "PIL-04",
+      "title_nl": "Pilvipalvelun konfiguraation hallinta",
+      "title": "Cloud configuration management",
+      "description_nl": "Pilvipalveluiden tietoturva-asetukset on katselmoitava ja kovennettava. Oletusasetuksia ei saa kayttaa tuotannossa.",
+      "description": "Cloud service security settings shall be reviewed and hardened. Default configurations shall not be used in production.",
+      "category": "Pilvipalveluiden turvallisuus",
+      "iso_mapping": "8.9"
+    },
+    {
+      "control_number": "PIL-05",
+      "title_nl": "Pilvipalvelun lokitus ja valvonta",
+      "title": "Cloud logging and monitoring",
+      "description_nl": "Pilvipalveluiden tapahtumat on lokitettava ja lokit on analysoitava poikkeamien havaitsemiseksi.",
+      "description": "Cloud service events shall be logged and logs analyzed for anomaly detection.",
+      "category": "Pilvipalveluiden turvallisuus",
+      "iso_mapping": "8.15"
+    },
+    {
+      "control_number": "PIL-06",
+      "title_nl": "Pilvipalvelun tietojen varmuuskopiointi",
+      "title": "Cloud data backup",
+      "description_nl": "Pilvipalvelussa olevien tietojen varmuuskopioinnista on huolehdittava. Palautumiskyky on testattava.",
+      "description": "Backup of data in cloud services shall be ensured. Recovery capability shall be tested.",
+      "category": "Pilvipalveluiden turvallisuus",
+      "iso_mapping": "8.13"
+    },
+    {
+      "control_number": "PIL-07",
+      "title_nl": "Pilvipalvelun exit-suunnitelma",
+      "title": "Cloud exit plan",
+      "description_nl": "Pilvipalvelusta poistumiseen on laadittava suunnitelma, joka sisaltaa tietojen siirron ja havittamisen menettelyt.",
+      "description": "An exit plan shall be prepared for leaving a cloud service, including data transfer and destruction procedures.",
+      "category": "Pilvipalveluiden turvallisuus",
+      "iso_mapping": "5.23"
+    },
+    {
+      "control_number": "ETA-01",
+      "title_nl": "Etatyon tietoturvapolitiikka",
+      "title": "Remote work security policy",
+      "description_nl": "Organisaatiolla on oltava etatyon tietoturvapolitiikka, joka maarittelee sallitut tyotavat ja -valineet.",
+      "description": "The organization shall have a remote work security policy defining allowed work methods and tools.",
+      "category": "Etatyon turvallisuus",
+      "iso_mapping": "6.7"
+    },
+    {
+      "control_number": "ETA-02",
+      "title_nl": "VPN-yhteyden kaytto",
+      "title": "VPN usage",
+      "description_nl": "Etatyossa on kaytettava VPN-yhteyta tai vastaavaa turvallista yhteysmuotoa organisaation verkkopalveluihin.",
+      "description": "VPN or equivalent secure connection shall be used for remote access to organizational services.",
+      "category": "Etatyon turvallisuus",
+      "iso_mapping": "8.20"
+    },
+    {
+      "control_number": "ETA-03",
+      "title_nl": "Etatyolaitteiden suojaus",
+      "title": "Remote work device security",
+      "description_nl": "Etatyossa kaytettavat laitteet on suojattava salauksella, haittaohjelmasuojauksella ja naytonlukituksella.",
+      "description": "Devices used for remote work shall be secured with encryption, malware protection, and screen lock.",
+      "category": "Etatyon turvallisuus",
+      "iso_mapping": "8.1"
+    },
+    {
+      "control_number": "ETA-04",
+      "title_nl": "Etatyon fyysinen turvallisuus",
+      "title": "Remote work physical security",
+      "description_nl": "Etatyoympariston fyysinen turvallisuus on huomioitava. Salassa pidettavia tietoja ei saa jattaa nakkyviin.",
+      "description": "Physical security of the remote work environment shall be considered. Classified information shall not be left visible.",
+      "category": "Etatyon turvallisuus",
+      "iso_mapping": "7.7"
+    },
+    {
+      "control_number": "ETA-05",
+      "title_nl": "Videopuheluiden turvallisuus",
+      "title": "Video call security",
+      "description_nl": "Videopuhelutyokalujen tietoturva on arvioitava. Salassa pidettavia asioita kasiteltaessa on kaytettava hyvaksyttyja tyokaluja.",
+      "description": "Security of video conferencing tools shall be assessed. Approved tools shall be used when handling classified matters.",
+      "category": "Etatyon turvallisuus",
+      "iso_mapping": "8.24"
+    },
+    {
+      "control_number": "MOB-01",
+      "title_nl": "Mobiililaitteiden hallintajarjestelma",
+      "title": "Mobile device management system",
+      "description_nl": "Organisaation mobiililaitteet on rekisteroitava hallintajarjestelmaan (MDM), joka mahdollistaa etahallinnan ja -tyhjennyksen.",
+      "description": "Organization mobile devices shall be enrolled in a management system (MDM) enabling remote management and wipe.",
+      "category": "Mobiililaitteiden hallinta",
+      "iso_mapping": "8.1"
+    },
+    {
+      "control_number": "MOB-02",
+      "title_nl": "Mobiililaitteiden salaus",
+      "title": "Mobile device encryption",
+      "description_nl": "Mobiililaitteiden massamuisti on salattava. Laitteen lukitus on toteutettava PIN-koodilla tai biometrisella tunnistuksella.",
+      "description": "Mobile device storage shall be encrypted. Device lock shall be implemented with PIN or biometric authentication.",
+      "category": "Mobiililaitteiden hallinta",
+      "iso_mapping": "8.24"
+    },
+    {
+      "control_number": "MOB-03",
+      "title_nl": "Sovellusten hallinta",
+      "title": "Application management",
+      "description_nl": "Mobiililaitteisiin asennettavat sovellukset on rajoitettava hyvaksyttyihin sovelluksiin. Sovelluspaivitykset on asennettava viipymatta.",
+      "description": "Applications installed on mobile devices shall be restricted to approved applications. Application updates shall be installed promptly.",
+      "category": "Mobiililaitteiden hallinta",
+      "iso_mapping": "8.19"
+    },
+    {
+      "control_number": "MOB-04",
+      "title_nl": "BYOD-kaytanto",
+      "title": "BYOD policy",
+      "description_nl": "Henkilokohtaisten laitteiden kayttoon tyoasioissa on maariteltava kaytanto, joka huomioi tietoturva- ja tietosuojavaatimukset.",
+      "description": "A policy for using personal devices for work shall be defined, considering security and privacy requirements.",
+      "category": "Mobiililaitteiden hallinta",
+      "iso_mapping": "8.1"
+    },
+    {
+      "control_number": "ICS-01",
+      "title_nl": "Automaatiojarjestelmien verkkoeristys",
+      "title": "Automation system network isolation",
+      "description_nl": "Teollisen automaation jarjestelmat on eristettava toimisto- ja internet-verkoista palomuurein ja DMZ-vyohykkein.",
+      "description": "Industrial automation systems shall be isolated from office and internet networks with firewalls and DMZ zones.",
+      "category": "Teollisen automaation turvallisuus",
+      "iso_mapping": "8.22"
+    },
+    {
+      "control_number": "ICS-02",
+      "title_nl": "SCADA-jarjestelmien suojaus",
+      "title": "SCADA system protection",
+      "description_nl": "SCADA-jarjestelmien etakaytto on suojattava vahvalla todennuksella ja salauksella. Oletussalasanat on vaihdettava.",
+      "description": "Remote access to SCADA systems shall be secured with strong authentication and encryption. Default passwords shall be changed.",
+      "category": "Teollisen automaation turvallisuus",
+      "iso_mapping": "8.5"
+    },
+    {
+      "control_number": "ICS-03",
+      "title_nl": "Automaatiojarjestelmien paivitykset",
+      "title": "Automation system patching",
+      "description_nl": "Automaatiojarjestelmien tietoturvapaivitykset on testattava erillisessa testiymparistossa ennen tuotantoon vientia.",
+      "description": "Security patches for automation systems shall be tested in a separate test environment before production deployment.",
+      "category": "Teollisen automaation turvallisuus",
+      "iso_mapping": "8.8"
+    },
+    {
+      "control_number": "ICS-04",
+      "title_nl": "Automaation hairiohallinta",
+      "title": "Automation incident management",
+      "description_nl": "Automaatiojarjestelmien tietoturvapoikkeamiin on varauduttava erillisella hariohallintasuunnitelmalla.",
+      "description": "Security incidents in automation systems shall be addressed with a dedicated incident management plan.",
+      "category": "Teollisen automaation turvallisuus",
+      "iso_mapping": "5.24"
+    },
+    {
+      "control_number": "YLE-01",
+      "title_nl": "Ohjelmistopäivitysten automaatio",
+      "title": "Automated software updates",
+      "description_nl": "Kayttojarjestelmien ja ohjelmistojen automaattiset tietoturvapaivitykset on otettava kayttoon mahdollisuuksien mukaan.",
+      "description": "Automated security updates for operating systems and software shall be enabled where possible.",
+      "category": "Yleiset kyberturvallisuusohjeet",
+      "iso_mapping": "8.8"
+    },
+    {
+      "control_number": "YLE-02",
+      "title_nl": "Salasanojen hallinta",
+      "title": "Password management",
+      "description_nl": "Vahvoja ja ainutlaatuisia salasanoja on kaytettava kaikissa palveluissa. Salasanojen hallintaohjelman kaytto on suositeltavaa.",
+      "description": "Strong and unique passwords shall be used for all services. Use of a password manager is recommended.",
+      "category": "Yleiset kyberturvallisuusohjeet",
+      "iso_mapping": "5.17"
+    },
+    {
+      "control_number": "YLE-03",
+      "title_nl": "Monivaiheinen tunnistautuminen",
+      "title": "Multi-factor authentication",
+      "description_nl": "Monivaiheinen tunnistautuminen on otettava kayttoon kaikissa kriittisissa palveluissa ja yllapitokayttajatunnuksissa.",
+      "description": "Multi-factor authentication shall be enabled for all critical services and administrator accounts.",
+      "category": "Yleiset kyberturvallisuusohjeet",
+      "iso_mapping": "8.5"
+    },
+    {
+      "control_number": "YLE-04",
+      "title_nl": "Varmuuskopiointi ja palautus",
+      "title": "Backup and recovery",
+      "description_nl": "Kriittiset tiedot on varmuuskopioitava saannollisesti. Palautumiskyky on testattava vahintaan vuosittain.",
+      "description": "Critical data shall be backed up regularly. Recovery capability shall be tested at least annually.",
+      "category": "Yleiset kyberturvallisuusohjeet",
+      "iso_mapping": "8.13"
+    },
+    {
+      "control_number": "YLE-05",
+      "title_nl": "Tietoturvailmoitusten seuranta",
+      "title": "Security advisory monitoring",
+      "description_nl": "NCSC-FI:n ja muiden luotettavien lahteiden tietoturvailmoituksia on seurattava ja niihin on reagoitava.",
+      "description": "Security advisories from NCSC-FI and other trusted sources shall be monitored and acted upon.",
+      "category": "Yleiset kyberturvallisuusohjeet",
+      "iso_mapping": "5.7"
+    }
+  ]
+}

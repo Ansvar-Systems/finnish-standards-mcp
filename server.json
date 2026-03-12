@@ -1,0 +1,12 @@
+{
+  "name": "finnish-standards-mcp",
+  "display_name": "Finnish Standards MCP",
+  "description": "Finnish government cybersecurity standards -- Julkri (DVV), Katakri (Ministry of Defence), NCSC-FI guidelines (Traficom), Tietosuojavaltuutetun ohjeet (DPA), VAHTI, Kanta health services security",
+  "author": "Ansvar Systems",
+  "author_url": "https://ansvar.eu",
+  "homepage": "https://github.com/Ansvar-Systems/finnish-standards-mcp",
+  "category": "compliance",
+  "tags": ["finnish", "finland", "cybersecurity", "compliance", "julkri", "katakri", "ncsc-fi", "standards"],
+  "license": "Apache-2.0",
+  "tools_count": 11
+}

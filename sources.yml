@@ -1,0 +1,136 @@
+schema_version: "1.0"
+mcp_name: "Finnish Standards MCP"
+category: "domain_intelligence"
+
+sources:
+  - name: "Julkri (Julkisen hallinnon tietoturvakriteeri)"
+    authority: "DVV (Digi- ja vaestotietovirasto)"
+    official_url: "https://www.suomidigi.fi/ohjeet-ja-tuki/tiedonhallinta/julkri"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF/HTML"
+    authentication: "none"
+    update_frequency: "manual"
+    version: "2020"
+    effective_date: "2020-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "Finnish government public document — free to reference"
+    coverage:
+      scope: "Government information security baseline criteria across seven domains"
+      version: "Julkri 2020"
+      item_count: 79
+    languages:
+      - "fi"
+      - "en"
+
+  - name: "NCSC-FI Kyberturvallisuusohjeet"
+    authority: "Traficom / NCSC-FI (Kyberturvallisuuskeskus)"
+    official_url: "https://www.kyberturvallisuuskeskus.fi/fi/ohjeet-ja-oppaat"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF/HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "Finnish government public document — free to reference"
+    coverage:
+      scope: "Cybersecurity guidelines for organizations, web, email, cloud, mobile, remote work, ICS"
+      version: "2024 edition"
+      item_count: 49
+    languages:
+      - "fi"
+      - "en"
+
+  - name: "Tietosuojavaltuutetun ohjeet"
+    authority: "Tietosuojavaltuutetun toimisto"
+    official_url: "https://tietosuoja.fi/ohjeet"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF/HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "Finnish DPA public guidance — free to reference"
+    coverage:
+      scope: "GDPR Art. 32 technical and organizational measures guidance for Finnish context"
+      version: "2024 edition"
+      item_count: 32
+    languages:
+      - "fi"
+      - "en"
+
+  - name: "Katakri (Kansallinen turvallisuusauditointikriteeristo)"
+    authority: "Puolustusministerio"
+    official_url: "https://www.defmin.fi/puolustushallinto/puolustushallinnon_turvallisuustoiminta/katakri"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "manual"
+    version: "2020"
+    effective_date: "2020-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "Finnish government public document — free to reference"
+    coverage:
+      scope: "National security audit criteria for classified information handling"
+      version: "Katakri 2020"
+      item_count: 35
+    languages:
+      - "fi"
+      - "en"
+
+  - name: "Vahti-ohjeet (Valtionhallinnon tietoturvaohjeistus)"
+    authority: "Valtiovarainministerio (VM)"
+    official_url: "https://vm.fi/vahti"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF"
+    authentication: "none"
+    update_frequency: "manual"
+    version: "2013"
+    effective_date: "2013-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "Finnish government public document — free to reference"
+    coverage:
+      scope: "Government IT management guidelines: ICT contingency, log management, personnel security, ISMS"
+      version: "VAHTI collection"
+      item_count: 32
+    languages:
+      - "fi"
+      - "en"
+
+  - name: "Kanta-palvelujen tietoturvavaatimukset"
+    authority: "Kela / THL"
+    official_url: "https://www.kanta.fi/tietoturva"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF/HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "Finnish health services public document — free to reference"
+    coverage:
+      scope: "Security requirements for Kanta national health data services connections"
+      version: "2024 edition"
+      item_count: 26
+    languages:
+      - "fi"
+      - "en"

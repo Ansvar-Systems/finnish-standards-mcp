@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0",
+  "mcp_name": "Finnish Standards MCP",
+  "mcp_type": "domain_intelligence",
+  "coverage_date": "2026-03-12",
+  "database_version": "0.1.0",
+  "sources": [
+    {
+      "id": "julkri",
+      "name": "Julkri (Julkisen hallinnon tietoturvakriteeri)",
+      "authority": "DVV (Digi- ja vaestotietovirasto)",
+      "url": "https://www.suomidigi.fi/ohjeet-ja-tuki/tiedonhallinta/julkri",
+      "version": "2020",
+      "item_count": 79,
+      "item_type": "control",
+      "last_refresh": "2026-03-12",
+      "refresh_frequency": "manual",
+      "completeness": "full",
+      "completeness_note": "All Julkri criteria across seven domains extracted"
+    },
+    {
+      "id": "ncsc-fi-ohjeet",
+      "name": "NCSC-FI Kyberturvallisuusohjeet",
+      "authority": "Traficom / NCSC-FI",
+      "url": "https://www.kyberturvallisuuskeskus.fi/fi/ohjeet-ja-oppaat",
+      "version": "2024",
+      "item_count": 49,
+      "item_type": "control",
+      "last_refresh": "2026-03-12",
+      "refresh_frequency": "annual",
+      "completeness": "full",
+      "completeness_note": "NCSC-FI cybersecurity guidelines across all domains extracted"
+    },
+    {
+      "id": "tietosuoja-ohjeet",
+      "name": "Tietosuojavaltuutetun ohjeet",
+      "authority": "Tietosuojavaltuutetun toimisto",
+      "url": "https://tietosuoja.fi/ohjeet",
+      "version": "2024",
+      "item_count": 32,
+      "item_type": "control",
+      "last_refresh": "2026-03-12",
+      "refresh_frequency": "annual",
+      "completeness": "full",
+      "completeness_note": "Data Protection Ombudsman guidance measures extracted"
+    },
+    {
+      "id": "katakri",
+      "name": "Katakri (Kansallinen turvallisuusauditointikriteeristo)",
+      "authority": "Puolustusministerio",
+      "url": "https://www.defmin.fi/puolustushallinto/puolustushallinnon_turvallisuustoiminta/katakri",
+      "version": "2020",
+      "item_count": 35,
+      "item_type": "control",
+      "last_refresh": "2026-03-12",
+      "refresh_frequency": "manual",
+      "completeness": "full",
+      "completeness_note": "All Katakri audit criteria across three areas extracted"
+    },
+    {
+      "id": "vahti",
+      "name": "Vahti-ohjeet (Valtionhallinnon tietoturvaohjeistus)",
+      "authority": "Valtiovarainministerio (VM)",
+      "url": "https://vm.fi/vahti",
+      "version": "2013",
+      "item_count": 32,
+      "item_type": "control",
+      "last_refresh": "2026-03-12",
+      "refresh_frequency": "manual",
+      "completeness": "full",
+      "completeness_note": "VAHTI guidelines from key publications extracted"
+    },
+    {
+      "id": "kanta-tietoturva",
+      "name": "Kanta-palvelujen tietoturvavaatimukset",
+      "authority": "Kela / THL",
+      "url": "https://www.kanta.fi/tietoturva",
+      "version": "2024",
+      "item_count": 26,
+      "item_type": "control",
+      "last_refresh": "2026-03-12",
+      "refresh_frequency": "annual",
+      "completeness": "full",
+      "completeness_note": "All Kanta health services security requirements extracted"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "kyberturvallisuuslaki",
+      "description": "Kyberturvallisuuslaki (NIS2 Finnish implementation) — cybersecurity act implementing EU NIS2 directive",
+      "reason": "Law under preparation; final text may change",
+      "impact": "high",
+      "planned": true,
+      "target_version": "1.0"
+    },
+    {
+      "id": "suomi-fi-turvallisuusvaatimukset",
+      "description": "Suomi.fi service security requirements — broader digital identity and e-service requirements",
+      "reason": "Requires structured extraction from multiple sources",
+      "impact": "medium",
+      "planned": true,
+      "target_version": "0.2"
+    }
+  ],
+  "tools": [
+    { "name": "search_controls", "category": "search", "description": "Full-text search across all controls in both Finnish and English", "data_sources": ["julkri", "ncsc-fi-ohjeet", "tietosuoja-ohjeet", "katakri", "vahti", "kanta-tietoturva"], "verified": true },
+    { "name": "get_control", "category": "lookup", "description": "Retrieve a specific control by framework-prefixed ID", "data_sources": ["julkri", "ncsc-fi-ohjeet", "tietosuoja-ohjeet", "katakri", "vahti", "kanta-tietoturva"], "verified": true },
+    { "name": "list_controls", "category": "lookup", "description": "List all controls for a given framework with optional category filter", "data_sources": ["julkri", "ncsc-fi-ohjeet", "tietosuoja-ohjeet", "katakri", "vahti", "kanta-tietoturva"], "verified": true },
+    { "name": "list_frameworks", "category": "lookup", "description": "List all available frameworks with control counts", "data_sources": ["julkri", "ncsc-fi-ohjeet", "tietosuoja-ohjeet", "katakri", "vahti", "kanta-tietoturva"], "verified": true },
+    { "name": "get_framework", "category": "lookup", "description": "Get detailed information about a specific framework", "data_sources": ["julkri", "ncsc-fi-ohjeet", "tietosuoja-ohjeet", "katakri", "vahti", "kanta-tietoturva"], "verified": true },
+    { "name": "get_iso_mapping", "category": "analysis", "description": "Find Finnish controls that map to a specific ISO 27001/27002 control", "data_sources": ["julkri", "ncsc-fi-ohjeet", "tietosuoja-ohjeet", "katakri", "vahti", "kanta-tietoturva"], "verified": true },
+    { "name": "compare_controls", "category": "analysis", "description": "Compare controls between two frameworks side by side", "data_sources": ["julkri", "ncsc-fi-ohjeet", "tietosuoja-ohjeet", "katakri", "vahti", "kanta-tietoturva"], "verified": true },
+    { "name": "search_by_sector", "category": "search", "description": "Find controls relevant to a specific sector (government, healthcare)", "data_sources": ["julkri", "ncsc-fi-ohjeet", "tietosuoja-ohjeet", "katakri", "vahti", "kanta-tietoturva"], "verified": true },
+    { "name": "about", "category": "meta", "description": "Server metadata, stats, data sources, and disclaimer", "data_sources": [], "verified": true },
+    { "name": "check_data_freshness", "category": "meta", "description": "Per-source data age report with staleness flags", "data_sources": ["julkri", "ncsc-fi-ohjeet", "tietosuoja-ohjeet", "katakri", "vahti", "kanta-tietoturva"], "verified": true },
+    { "name": "list_sources", "category": "meta", "description": "Data provenance and licensing information for all sources", "data_sources": [], "verified": true }
+  ],
+  "summary": {
+    "total_tools": 11,
+    "total_sources": 6,
+    "total_items": 253,
+    "db_size_mb": 0.21,
+    "known_gaps": 2,
+    "gaps_planned": 2
+  }
+}

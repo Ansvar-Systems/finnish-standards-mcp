@@ -1,0 +1,161 @@
+[
+  {
+    "id": "get-julkri-control",
+    "tool": "get_control",
+    "args": { "control_id": "julkri:HAL-01" },
+    "assertions": [
+      { "type": "contains", "value": "Tietoturvapolitiikka" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "get-katakri-control",
+    "tool": "get_control",
+    "args": { "control_id": "katakri:T-01" },
+    "assertions": [
+      { "type": "contains", "value": "Turvallisuuspolitiikka" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "get-kanta-control",
+    "tool": "get_control",
+    "args": { "control_id": "kanta-tietoturva:KAN-LOK-01" },
+    "assertions": [
+      { "type": "contains", "value": "Potilastietojen" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "search-finnish-term",
+    "tool": "search_controls",
+    "args": { "query": "tietoturva" },
+    "assertions": [
+      { "type": "contains", "value": "julkri" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "search-english-security",
+    "tool": "search_controls",
+    "args": { "query": "security" },
+    "assertions": [
+      { "type": "contains", "value": "julkri" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "iso-mapping-5-1",
+    "tool": "get_iso_mapping",
+    "args": { "iso_control": "5.1" },
+    "assertions": [
+      { "type": "contains", "value": "julkri" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "sector-healthcare",
+    "tool": "search_by_sector",
+    "args": { "sector": "healthcare" },
+    "assertions": [
+      { "type": "contains", "value": "kanta-tietoturva" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "list-all-frameworks",
+    "tool": "list_frameworks",
+    "args": {},
+    "assertions": [
+      { "type": "contains", "value": "julkri" },
+      { "type": "contains", "value": "katakri" },
+      { "type": "contains", "value": "6 frameworks" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "list-julkri-controls",
+    "tool": "list_controls",
+    "args": { "framework_id": "julkri" },
+    "assertions": [
+      { "type": "contains", "value": "HAL-01" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "get-framework-julkri",
+    "tool": "get_framework",
+    "args": { "framework_id": "julkri" },
+    "assertions": [
+      { "type": "contains", "value": "Julkri" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "compare-julkri-katakri",
+    "tool": "compare_controls",
+    "args": { "query": "tietoturva", "framework_ids": ["julkri", "katakri"] },
+    "assertions": [
+      { "type": "contains", "value": "julkri" },
+      { "type": "contains", "value": "katakri" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "list-data-sources",
+    "tool": "list_sources",
+    "args": {},
+    "assertions": [
+      { "type": "contains", "value": "Data Sources" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "negative-unknown-control",
+    "tool": "get_control",
+    "args": { "control_id": "julkri:ZZZ-999" },
+    "assertions": [
+      { "type": "is_error" },
+      { "type": "error_type", "value": "NO_MATCH" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "negative-empty-search",
+    "tool": "search_controls",
+    "args": { "query": "" },
+    "assertions": [
+      { "type": "is_error" },
+      { "type": "error_type", "value": "INVALID_INPUT" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "negative-unknown-framework",
+    "tool": "get_framework",
+    "args": { "framework_id": "nonexistent-framework" },
+    "assertions": [
+      { "type": "is_error" },
+      { "type": "error_type", "value": "NO_MATCH" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "meta-about",
+    "tool": "about",
+    "args": {},
+    "assertions": [
+      { "type": "contains", "value": "Finnish Standards MCP" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "meta-freshness",
+    "tool": "check_data_freshness",
+    "args": {},
+    "assertions": [
+      { "type": "contains", "value": "Data Freshness Report" },
+      { "type": "has_meta" }
+    ]
+  }
+]

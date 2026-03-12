@@ -1,0 +1,7 @@
+title = "finnish-standards-mcp gitleaks config"
+
+[allowlist]
+  paths = [
+    '''fixtures/''',
+    '''data/extracted/''',
+  ]

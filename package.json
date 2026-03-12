@@ -1,0 +1,48 @@
+{
+  "name": "@ansvar/finnish-standards-mcp",
+  "version": "0.1.0",
+  "description": "Finnish government cybersecurity standards MCP -- Julkri, Katakri, NCSC-FI guidelines, Tietosuojavaltuutetun ohjeet, VAHTI, Kanta health services security. Part of the Ansvar MCP Network (ansvar.ai/mcp)",
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "finnish-standards-mcp": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist && find . -name '*.tsbuildinfo' -delete",
+    "dev": "tsx src/index.ts",
+    "dev:http": "tsx src/http-server.ts",
+    "start": "node dist/index.js",
+    "start:http": "node dist/http-server.js",
+    "lint": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:contract": "vitest run __tests__/contract/",
+    "build:db": "node --import tsx scripts/build-db.ts",
+    "ingest:full": "node --import tsx scripts/ingest-julkri.ts && node --import tsx scripts/ingest-ncsc-fi.ts && node --import tsx scripts/ingest-tietosuoja.ts && node --import tsx scripts/ingest-katakri.ts && node --import tsx scripts/ingest-vahti.ts && node --import tsx scripts/ingest-kanta.ts && npm run build:db && npm run coverage:update",
+    "coverage:update": "node --import tsx scripts/update-coverage.ts",
+    "coverage:verify": "node --import tsx scripts/verify-coverage.ts",
+    "freshness:check": "node --import tsx scripts/check-freshness.ts",
+    "prepare": "test -f dist/index.js || npm run build"
+  },
+  "keywords": ["mcp", "finnish", "finland", "julkri", "katakri", "ncsc-fi", "cybersecurity", "compliance", "standards"],
+  "author": "Ansvar Systems <hello@ansvar.eu>",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ansvar-Systems/finnish-standards-mcp.git"
+  },
+  "engines": { "node": ">=20" },
+  "files": ["dist", "data", "sources.yml"],
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.0.0",
+    "tsx": "^4.21.0"
+  },
+  "dependencies": {
+    "@ansvar/mcp-sqlite": "^1.0.3",
+    "@modelcontextprotocol/sdk": "^1.25.3",
+    "zod": "^3.24.0"
+  }
+}

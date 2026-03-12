@@ -1,0 +1,370 @@
+{
+  "framework": {
+    "id": "katakri",
+    "name": "National Security Audit Criteria (Katakri)",
+    "name_nl": "Kansallinen turvallisuusauditointikriteeristo (Katakri)",
+    "issuing_body": "Puolustusministerio",
+    "version": "2020",
+    "effective_date": "2020-01-01",
+    "scope": "Security audit criteria for organizations handling classified information. Used by the National Security Authority (NSA-FI) to audit facilities processing national security classified data.",
+    "scope_sectors": [
+      "government"
+    ],
+    "structure_description": "Three areas: T (Turvallisuusjohtaminen/Security Management), F (Fyysinen turvallisuus/Physical Security), I (Tekninen tietoturvallisuus/Technical Information Security). Three classification levels: IV (Restricted), III (Confidential), II (Secret).",
+    "source_url": "https://www.defmin.fi/puolustushallinto/puolustushallinnon_turvallisuustoiminta/katakri",
+    "license": "Public sector publication",
+    "language": "fi+en"
+  },
+  "controls": [
+    {
+      "control_number": "T-01",
+      "title_nl": "Turvallisuuspolitiikka",
+      "title": "Security policy",
+      "description_nl": "Organisaatiolla on oltava johdon hyvaksyma turvallisuuspolitiikka, joka kattaa kansallisen turvallisuuden nakokulman.",
+      "description": "The organization shall have a management-approved security policy covering national security aspects.",
+      "category": "Turvallisuusjohtaminen",
+      "level": "IV",
+      "iso_mapping": "5.1"
+    },
+    {
+      "control_number": "T-02",
+      "title_nl": "Turvallisuusorganisaatio",
+      "title": "Security organization",
+      "description_nl": "Turvallisuusvastuut on maariteltava ja turvallisuusorganisaatio on perustettava. Turvallisuuspaallikon on oltava suoraan johdon alainen.",
+      "description": "Security responsibilities shall be defined and a security organization established. The security manager shall report directly to management.",
+      "category": "Turvallisuusjohtaminen",
+      "level": "IV",
+      "iso_mapping": "5.4"
+    },
+    {
+      "control_number": "T-03",
+      "title_nl": "Riskienhallinta",
+      "title": "Risk management",
+      "description_nl": "Turvallisuusriskien arviointi on suoritettava jarjestelmallisesti. Arvioinnin on katettava fyysinen, henkilosto- ja tietoturvallisuus.",
+      "description": "Security risk assessment shall be performed systematically covering physical, personnel, and information security.",
+      "category": "Turvallisuusjohtaminen",
+      "level": "IV",
+      "iso_mapping": "5.3"
+    },
+    {
+      "control_number": "T-04",
+      "title_nl": "Turvallisuussopimukset",
+      "title": "Security agreements",
+      "description_nl": "Salassa pidettavan tiedon kasittelyyn liittyvat turvallisuussopimukset on laadittava kaikkien osapuolten kanssa.",
+      "description": "Security agreements related to classified information handling shall be established with all parties.",
+      "category": "Turvallisuusjohtaminen",
+      "level": "IV",
+      "iso_mapping": "5.19"
+    },
+    {
+      "control_number": "T-05",
+      "title_nl": "Turvallisuuskoulutus",
+      "title": "Security training",
+      "description_nl": "Salassa pidettavia tietoja kasitteleville henkiloille on jarjestettava turvallisuuskoulutus ennen kaytto-oikeuksien myontamista.",
+      "description": "Security training shall be provided to persons handling classified information before granting access rights.",
+      "category": "Turvallisuusjohtaminen",
+      "level": "IV",
+      "iso_mapping": "6.3"
+    },
+    {
+      "control_number": "T-06",
+      "title_nl": "Turvallisuuspoikkeamien hallinta",
+      "title": "Security incident management",
+      "description_nl": "Turvallisuuspoikkeamien tunnistamiseen, raportointiin ja kasittelyyn on oltava menettelyt. Poikkeamista on ilmoitettava toimivaltaiselle viranomaiselle.",
+      "description": "Procedures shall exist for identifying, reporting, and handling security incidents. Incidents shall be reported to the competent authority.",
+      "category": "Turvallisuusjohtaminen",
+      "level": "IV",
+      "iso_mapping": "5.24"
+    },
+    {
+      "control_number": "T-07",
+      "title_nl": "Turvallisuuden auditointi",
+      "title": "Security auditing",
+      "description_nl": "Turvallisuusjarjestelyjen riittavyys on auditoitava saannollisesti. Auditoinnin tulokset on raportoitava johdolle.",
+      "description": "Adequacy of security arrangements shall be audited regularly. Audit results shall be reported to management.",
+      "category": "Turvallisuusjohtaminen",
+      "level": "IV",
+      "iso_mapping": "5.35"
+    },
+    {
+      "control_number": "T-08",
+      "title_nl": "Turvallisuusdokumentaatio",
+      "title": "Security documentation",
+      "description_nl": "Turvallisuusjarjestelyt on dokumentoitava kattavasti. Dokumentaatio on pidettava ajan tasalla ja suojattava.",
+      "description": "Security arrangements shall be documented comprehensively. Documentation shall be kept up to date and protected.",
+      "category": "Turvallisuusjohtaminen",
+      "level": "IV",
+      "iso_mapping": "5.1"
+    },
+    {
+      "control_number": "T-09",
+      "title_nl": "Jatkuvuuden hallinta",
+      "title": "Continuity management",
+      "description_nl": "Salassa pidettavien tietojen kasittelyyn kaytettavien jarjestelmien jatkuvuussuunnitelmat on laadittava ja testattava.",
+      "description": "Continuity plans for systems used to process classified information shall be prepared and tested.",
+      "category": "Turvallisuusjohtaminen",
+      "level": "III",
+      "iso_mapping": "5.29"
+    },
+    {
+      "control_number": "T-10",
+      "title_nl": "Muutoshallinta",
+      "title": "Change management",
+      "description_nl": "Turvallisuuteen vaikuttavat muutokset on hallittava muutoshallintamenettelylla.",
+      "description": "Changes affecting security shall be managed through a change management process.",
+      "category": "Turvallisuusjohtaminen",
+      "level": "IV",
+      "iso_mapping": "8.32"
+    },
+    {
+      "control_number": "F-01",
+      "title_nl": "Turva-alueiden maarittely",
+      "title": "Security zone definition",
+      "description_nl": "Tilat on jaettava turva-alueisiin suojaustason mukaan. Hallinnollinen alue, turva-alue ja ytimen turva-alue on maariteltava.",
+      "description": "Premises shall be divided into security zones according to protection level. Administrative area, security area, and core security area shall be defined.",
+      "category": "Fyysinen turvallisuus",
+      "level": "IV",
+      "iso_mapping": "7.1"
+    },
+    {
+      "control_number": "F-02",
+      "title_nl": "Kulunvalvonta",
+      "title": "Access control",
+      "description_nl": "Turva-alueille on toteutettava kulunvalvonta, joka estaa luvattoman paasyn. Kulkuoikeudet on rajattava tarpeen mukaan.",
+      "description": "Access control preventing unauthorized entry shall be implemented for security zones. Access rights shall be limited based on need.",
+      "category": "Fyysinen turvallisuus",
+      "level": "IV",
+      "iso_mapping": "7.2"
+    },
+    {
+      "control_number": "F-03",
+      "title_nl": "Rakenteellinen suojaus",
+      "title": "Structural protection",
+      "description_nl": "Turva-alueiden seinien, ovien, ikkunoiden ja muiden rakenteiden on taytettava suojaustason mukaiset vaatimukset.",
+      "description": "Walls, doors, windows, and other structures of security zones shall meet requirements according to protection level.",
+      "category": "Fyysinen turvallisuus",
+      "level": "IV",
+      "iso_mapping": "7.1"
+    },
+    {
+      "control_number": "F-04",
+      "title_nl": "Murtoilmaisinjarjestelma",
+      "title": "Intrusion detection system",
+      "description_nl": "Turva-alueilla on kaytettava murtoilmaisinjarjestelmaa, joka havahtyy luvattomasta tunkeutumisyrityksesta.",
+      "description": "An intrusion detection system detecting unauthorized entry attempts shall be used in security zones.",
+      "category": "Fyysinen turvallisuus",
+      "level": "III",
+      "iso_mapping": "7.4"
+    },
+    {
+      "control_number": "F-05",
+      "title_nl": "Kameravalvonta",
+      "title": "Camera surveillance",
+      "description_nl": "Turva-alueiden valvontaan on kaytettava kameravalvontaa. Tallenteet on sailytettava vahintaan 30 vuorokautta.",
+      "description": "Camera surveillance shall be used for security zone monitoring. Recordings shall be retained for at least 30 days.",
+      "category": "Fyysinen turvallisuus",
+      "level": "III",
+      "iso_mapping": "7.4"
+    },
+    {
+      "control_number": "F-06",
+      "title_nl": "Vierailuhallinta",
+      "title": "Visitor management",
+      "description_nl": "Vierailijoiden paasynhallinta turva-alueille on toteutettava. Vierailijat on saatettava turva-alueella.",
+      "description": "Visitor access management to security zones shall be implemented. Visitors shall be escorted in security zones.",
+      "category": "Fyysinen turvallisuus",
+      "level": "IV",
+      "iso_mapping": "7.2"
+    },
+    {
+      "control_number": "F-07",
+      "title_nl": "Laitetilojen suojaus",
+      "title": "Equipment room protection",
+      "description_nl": "Palvelin- ja verkkolaitetilat on suojattava turva-alueen vaatimusten mukaisesti.",
+      "description": "Server and network equipment rooms shall be protected according to security zone requirements.",
+      "category": "Fyysinen turvallisuus",
+      "level": "IV",
+      "iso_mapping": "7.5"
+    },
+    {
+      "control_number": "F-08",
+      "title_nl": "Paloturvallisuus",
+      "title": "Fire safety",
+      "description_nl": "Turva-alueiden paloturvallisuus on varmistettava paloilmaisin-, sammutuslaitteisto- ja evakuointijarjestelyin.",
+      "description": "Fire safety of security zones shall be ensured with fire detection, suppression equipment, and evacuation arrangements.",
+      "category": "Fyysinen turvallisuus",
+      "level": "IV",
+      "iso_mapping": "7.5"
+    },
+    {
+      "control_number": "F-09",
+      "title_nl": "Salassa pidettavan aineiston sailytys",
+      "title": "Classified material storage",
+      "description_nl": "Salassa pidettava aineisto on sailytettava luokitusta vastaavissa turvakaapeissa tai -holveissa.",
+      "description": "Classified material shall be stored in security cabinets or vaults corresponding to the classification level.",
+      "category": "Fyysinen turvallisuus",
+      "level": "IV",
+      "iso_mapping": "7.7"
+    },
+    {
+      "control_number": "F-10",
+      "title_nl": "Tietovaelitteiden havittaminen",
+      "title": "Media destruction",
+      "description_nl": "Salassa pidettavaa tietoa sisaltavat tietovalineet on haveittava hyvaksytylla menetelmalla.",
+      "description": "Media containing classified information shall be destroyed using an approved method.",
+      "category": "Fyysinen turvallisuus",
+      "level": "IV",
+      "iso_mapping": "7.14"
+    },
+    {
+      "control_number": "F-11",
+      "title_nl": "Sahkomagneettinen suojaus (TEMPEST)",
+      "title": "Electromagnetic protection (TEMPEST)",
+      "description_nl": "TL II ja TL III -tason tietoja kasittelevien tilojen sahkomagneettinen suojaus on arvioitava ja toteutettava.",
+      "description": "Electromagnetic protection of rooms processing TL II and TL III level information shall be assessed and implemented.",
+      "category": "Fyysinen turvallisuus",
+      "level": "II",
+      "iso_mapping": "7.5"
+    },
+    {
+      "control_number": "F-12",
+      "title_nl": "Varavoimajarjestelyt",
+      "title": "Backup power arrangements",
+      "description_nl": "Kriittisille turva-alueille on jarjestettava varavoimansyotto.",
+      "description": "Backup power supply shall be arranged for critical security zones.",
+      "category": "Fyysinen turvallisuus",
+      "level": "III",
+      "iso_mapping": "7.11"
+    },
+    {
+      "control_number": "I-01",
+      "title_nl": "Tietojarjestelmien hyväksyminen",
+      "title": "Information system accreditation",
+      "description_nl": "Salassa pidettavia tietoja kasittelevat tietojarjestelmat on hyvaksyttava ennen kayttoonottoa. Hyvaksyminen perustuu riskiarviointiin.",
+      "description": "Information systems processing classified information shall be accredited before deployment. Accreditation is based on risk assessment.",
+      "category": "Tekninen tietoturvallisuus",
+      "level": "IV",
+      "iso_mapping": "5.8"
+    },
+    {
+      "control_number": "I-02",
+      "title_nl": "Verkkojen eristaminen",
+      "title": "Network isolation",
+      "description_nl": "Salassa pidettavia tietoja kasittelevat verkot on eristettava julkisesta verkosta. TL III ja TL II tasoisille tiedoille on kaytettava erillisverkkoja.",
+      "description": "Networks processing classified information shall be isolated from public networks. Separate networks shall be used for TL III and TL II level information.",
+      "category": "Tekninen tietoturvallisuus",
+      "level": "IV",
+      "iso_mapping": "8.22"
+    },
+    {
+      "control_number": "I-03",
+      "title_nl": "Salausmenetelmat",
+      "title": "Encryption methods",
+      "description_nl": "Salassa pidettavien tietojen salaukseen on kaytettava turvallisuusviranomaisen hyvaksymia salausmenetelmia ja -tuotteita.",
+      "description": "Approved encryption methods and products shall be used for encrypting classified information.",
+      "category": "Tekninen tietoturvallisuus",
+      "level": "IV",
+      "iso_mapping": "8.24"
+    },
+    {
+      "control_number": "I-04",
+      "title_nl": "Kaytto-oikeuksien hallinta",
+      "title": "Access rights management",
+      "description_nl": "Kayttooikeudet salassa pidettaviin tietoihin on myonnettava tarvittaessa tiedot -periaatteella. Oikeudet on katselmoitava saannollisesti.",
+      "description": "Access rights to classified information shall be granted on a need-to-know basis. Rights shall be reviewed regularly.",
+      "category": "Tekninen tietoturvallisuus",
+      "level": "IV",
+      "iso_mapping": "5.15"
+    },
+    {
+      "control_number": "I-05",
+      "title_nl": "Vahva tunnistaminen",
+      "title": "Strong authentication",
+      "description_nl": "Salassa pidettavia tietoja kasitteleviin jarjestelmiin on kirjauduttava vahvalla tunnistautumisella (vahintaan kaksivaiheinen).",
+      "description": "Strong authentication (at least two-factor) shall be used to log into systems processing classified information.",
+      "category": "Tekninen tietoturvallisuus",
+      "level": "IV",
+      "iso_mapping": "8.5"
+    },
+    {
+      "control_number": "I-06",
+      "title_nl": "Lokitus ja jaljitettavyys",
+      "title": "Logging and traceability",
+      "description_nl": "Salassa pidettavien tietojen kasittelytapahtumat on lokitettava. Lokitiedoista on voitava selvittaa, kuka on kayttanyt mitakin tietoa.",
+      "description": "Processing events for classified information shall be logged. It shall be possible to determine from logs who accessed what information.",
+      "category": "Tekninen tietoturvallisuus",
+      "level": "IV",
+      "iso_mapping": "8.15"
+    },
+    {
+      "control_number": "I-07",
+      "title_nl": "Haittaohjelmasuojaus",
+      "title": "Malware protection",
+      "description_nl": "Salassa pidettavia tietoja kasittelevat jarjestelmat on suojattava haittaohjelmilta.",
+      "description": "Systems processing classified information shall be protected against malware.",
+      "category": "Tekninen tietoturvallisuus",
+      "level": "IV",
+      "iso_mapping": "8.7"
+    },
+    {
+      "control_number": "I-08",
+      "title_nl": "Paivityshallinta",
+      "title": "Patch management",
+      "description_nl": "Tietoturvapaivitykset on asennettava viipymatta. Paivitysten yhteensopivuus on testattava ennen asennusta.",
+      "description": "Security patches shall be installed promptly. Patch compatibility shall be tested before installation.",
+      "category": "Tekninen tietoturvallisuus",
+      "level": "IV",
+      "iso_mapping": "8.8"
+    },
+    {
+      "control_number": "I-09",
+      "title_nl": "Jarjestelmien koventaminen",
+      "title": "System hardening",
+      "description_nl": "Salassa pidettavia tietoja kasittelevat jarjestelmat on kovennettava poistamalla tarpeettomat palvelut ja ominaisuudet.",
+      "description": "Systems processing classified information shall be hardened by removing unnecessary services and features.",
+      "category": "Tekninen tietoturvallisuus",
+      "level": "IV",
+      "iso_mapping": "8.9"
+    },
+    {
+      "control_number": "I-10",
+      "title_nl": "Tiedon poistaminen",
+      "title": "Data removal",
+      "description_nl": "Salassa pidettavat tiedot on poistettava turvallisesti jarjestelmista, kun niita ei enaa tarvita.",
+      "description": "Classified information shall be securely removed from systems when no longer needed.",
+      "category": "Tekninen tietoturvallisuus",
+      "level": "IV",
+      "iso_mapping": "8.10"
+    },
+    {
+      "control_number": "I-11",
+      "title_nl": "Siirrettavien tietovalineiden hallinta",
+      "title": "Removable media management",
+      "description_nl": "Siirrettavien tietovalineiden kaytto salassa pidettavien tietojen siirtoon on rajoitettava ja valvottava.",
+      "description": "Use of removable media for transferring classified information shall be restricted and monitored.",
+      "category": "Tekninen tietoturvallisuus",
+      "level": "IV",
+      "iso_mapping": "8.12"
+    },
+    {
+      "control_number": "I-12",
+      "title_nl": "Varmuuskopiointi",
+      "title": "Backup",
+      "description_nl": "Salassa pidettavien tietojen varmuuskopiot on laadittava ja sailytettava samalla suojaustasolla kuin alkuperaiset tiedot.",
+      "description": "Backups of classified information shall be created and stored at the same protection level as the original data.",
+      "category": "Tekninen tietoturvallisuus",
+      "level": "IV",
+      "iso_mapping": "8.13"
+    },
+    {
+      "control_number": "I-13",
+      "title_nl": "Tietoturvallisuuden testaus",
+      "title": "Security testing",
+      "description_nl": "Salassa pidettavia tietoja kasittelevien jarjestelmien tietoturvallisuus on testattava saannollisesti.",
+      "description": "Security of systems processing classified information shall be tested regularly.",
+      "category": "Tekninen tietoturvallisuus",
+      "level": "III",
+      "iso_mapping": "8.34"
+    }
+  ]
+}
