@@ -3,7 +3,7 @@ import { describe, it, expect } from 'vitest';
 import { handleListFrameworks } from '../../src/tools/list-frameworks.js';
 
 describe('handleListFrameworks', () => {
-  it('returns a Markdown table containing all 6 frameworks with control counts', () => {
+  it('returns a Markdown table containing all 13 frameworks with control counts', () => {
     const result = handleListFrameworks();
 
     expect(result.isError).toBeFalsy();
@@ -15,10 +15,14 @@ describe('handleListFrameworks', () => {
     expect(text).toContain('julkri');
     expect(text).toContain('katakri');
     expect(text).toContain('ncsc-fi-ohjeet');
+    expect(text).toContain('traficom-maaraykset');
+    expect(text).toContain('finanssivalvonta');
+    expect(text).toContain('kyberturvallisuuslaki');
 
     // Framework names present
     expect(text).toContain('Julkri');
     expect(text).toContain('Katakri');
+    expect(text).toContain('Traficom');
 
     // Issuing bodies present
     expect(text).toContain('DVV');
@@ -30,11 +34,13 @@ describe('handleListFrameworks', () => {
     // Sectors present
     expect(text).toContain('government');
     expect(text).toContain('healthcare');
+    expect(text).toContain('finance');
+    expect(text).toContain('telecom');
 
     // Markdown table structure
     expect(text).toContain('| ID |');
 
-    // 6 frameworks
-    expect(text).toContain('6 frameworks');
+    // 13 frameworks
+    expect(text).toContain('13 frameworks');
   });
 });

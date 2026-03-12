@@ -63,13 +63,67 @@
     ]
   },
   {
+    "id": "get-traficom-control",
+    "tool": "get_control",
+    "args": { "control_id": "traficom-maaraykset:TRAF-VV-01" },
+    "assertions": [
+      { "type": "contains", "value": "Viestintaverkon" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "get-nis2-control",
+    "tool": "get_control",
+    "args": { "control_id": "kyberturvallisuuslaki:NIS2-FI-03" },
+    "assertions": [
+      { "type": "contains", "value": "Poikkeamaraportointivelvoite" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "get-fiva-control",
+    "tool": "get_control",
+    "args": { "control_id": "finanssivalvonta:FIVA-DORA-01" },
+    "assertions": [
+      { "type": "contains", "value": "DORA" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "sector-finance",
+    "tool": "search_by_sector",
+    "args": { "sector": "finance" },
+    "assertions": [
+      { "type": "contains", "value": "finanssivalvonta" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "sector-telecom",
+    "tool": "search_by_sector",
+    "args": { "sector": "telecom" },
+    "assertions": [
+      { "type": "contains", "value": "traficom-maaraykset" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
+    "id": "get-framework-traficom",
+    "tool": "get_framework",
+    "args": { "framework_id": "traficom-maaraykset" },
+    "assertions": [
+      { "type": "contains", "value": "Traficom" },
+      { "type": "has_meta" }
+    ]
+  },
+  {
     "id": "list-all-frameworks",
     "tool": "list_frameworks",
     "args": {},
     "assertions": [
       { "type": "contains", "value": "julkri" },
       { "type": "contains", "value": "katakri" },
-      { "type": "contains", "value": "6 frameworks" },
+      { "type": "contains", "value": "13 frameworks" },
       { "type": "has_meta" }
     ]
   },

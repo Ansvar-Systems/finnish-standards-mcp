@@ -1,0 +1,223 @@
+{
+  "framework": {
+    "id": "energia-liikenne",
+    "name": "Energy and Transport Cybersecurity Requirements",
+    "name_nl": "Energia- ja liikennesektorin kyberturvallisuusvaatimukset",
+    "issuing_body": "Energiavirasto / Vaylavirasto / HVK / LVM / Suomen Pankki",
+    "version": "2024",
+    "effective_date": "2024-01-01",
+    "scope": "Cybersecurity requirements for Finnish energy sector (Energiavirasto), transport infrastructure (Vaylavirasto), national emergency supply (HVK), transport ministry cyber strategy (LVM), and central bank requirements (Suomen Pankki / ECB). Covers SCADA/ICS protection, smart grid security, transport system security, and payment system resilience.",
+    "scope_sectors": [
+      "energy",
+      "transport",
+      "finance",
+      "water"
+    ],
+    "structure_description": "Organized by authority: Energiavirasto (energy), Vaylavirasto (transport infrastructure), HVK (emergency supply), LVM (cyber strategy), Suomen Pankki (payment systems).",
+    "source_url": "https://energiavirasto.fi/",
+    "license": "Public sector publication",
+    "language": "fi+en"
+  },
+  "controls": [
+    {
+      "control_number": "ENER-01",
+      "title_nl": "Energiasektorin kyberturvallisuuden hallinta",
+      "title": "Energy sector cybersecurity management",
+      "description_nl": "Energiasektorin toimijan on toteutettava kyberturvallisuuden hallintajarjestelma, joka kattaa sahkoverkkojen ja kaasuverkkojen turvaamisen.",
+      "description": "An energy sector entity shall implement a cybersecurity management system covering protection of electricity and gas networks.",
+      "category": "Energiasektorin kyberturvallisuus",
+      "iso_mapping": "5.1",
+      "source_url": "https://energiavirasto.fi/sahkoverkot"
+    },
+    {
+      "control_number": "ENER-02",
+      "title_nl": "Sahkoverkon valvontajarjestelmien suojaus",
+      "title": "Electricity grid control system protection",
+      "description_nl": "Sahkoverkon SCADA- ja EMS-jarjestelmat on eristettava toimistoverkosta ja suojattava luvattomalta paasylta.",
+      "description": "Electricity grid SCADA and EMS systems shall be isolated from the office network and protected against unauthorized access.",
+      "category": "Energiasektorin kyberturvallisuus",
+      "iso_mapping": "8.22"
+    },
+    {
+      "control_number": "ENER-03",
+      "title_nl": "Energiajärjestelmien paivityshallinta",
+      "title": "Energy system patch management",
+      "description_nl": "Energiajarjestelmien tietoturvapaivitykset on testattava erillisessa testiymparistossa ennen tuotantoymparistoon asennusta.",
+      "description": "Energy system security patches shall be tested in a separate test environment before production installation.",
+      "category": "Energiasektorin kyberturvallisuus",
+      "iso_mapping": "8.8"
+    },
+    {
+      "control_number": "ENER-04",
+      "title_nl": "Energiasektorin hairiotilanneviestinta",
+      "title": "Energy sector incident communication",
+      "description_nl": "Merkittavista tietoturvahairiotilanteista on ilmoitettava Energiavirastolle ja Fingridille. Sahkon toimitusvarmuuteen vaikuttavat hairiot on raportoitava valittomasti.",
+      "description": "Significant security incidents shall be reported to the Energy Authority and Fingrid. Disruptions affecting electricity supply reliability shall be reported immediately.",
+      "category": "Energiasektorin kyberturvallisuus",
+      "iso_mapping": "5.24"
+    },
+    {
+      "control_number": "ENER-05",
+      "title_nl": "Sahkoverkon jatkuvuudenhallinta",
+      "title": "Electricity grid continuity management",
+      "description_nl": "Sahkoverkon toimijoiden on laadittava jatkuvuussuunnitelma kyberturvallisuuspoikkeamien varalle. Suunnitelma on testattava vuosittain.",
+      "description": "Electricity grid operators shall prepare a continuity plan for cybersecurity incidents. The plan shall be tested annually.",
+      "category": "Energiasektorin kyberturvallisuus",
+      "iso_mapping": "5.29"
+    },
+    {
+      "control_number": "ENER-06",
+      "title_nl": "Alykkaan sahkoverkon turvallisuus",
+      "title": "Smart grid security",
+      "description_nl": "Alykkaan sahkoverkon komponenttien (alykkaat mittarit, keskittimet) tietoturva on varmistettava. Tiedonsiirto on salattava ja laitteiden eheys on tarkistettava.",
+      "description": "Security of smart grid components (smart meters, concentrators) shall be ensured. Data transfer shall be encrypted and device integrity verified.",
+      "category": "Energiasektorin kyberturvallisuus",
+      "iso_mapping": "8.24"
+    },
+    {
+      "control_number": "ENER-07",
+      "title_nl": "Toimitusketjun turvallisuus energiasektorilla",
+      "title": "Supply chain security in energy sector",
+      "description_nl": "Energiasektorin kriittisten komponenttien ja ohjelmistojen toimitusketjun turvallisuus on arvioitava.",
+      "description": "Supply chain security of critical energy sector components and software shall be assessed.",
+      "category": "Energiasektorin kyberturvallisuus",
+      "iso_mapping": "5.19"
+    },
+    {
+      "control_number": "ENER-08",
+      "title_nl": "Energiasektorin henkiloston turvallisuus",
+      "title": "Energy sector personnel security",
+      "description_nl": "Kriittisten energiajarjestelmien yllapitohenkiloston taustat on tarkistettava ja heille on jarjestettava kyberturvallisuuskoulutusta.",
+      "description": "Background checks shall be conducted for critical energy system maintenance personnel and cybersecurity training provided.",
+      "category": "Energiasektorin kyberturvallisuus",
+      "iso_mapping": "6.1"
+    },
+    {
+      "control_number": "VAYLA-01",
+      "title_nl": "Liikennejarjestelmien kyberturvallisuuden hallinta",
+      "title": "Transport system cybersecurity management",
+      "description_nl": "Liikennejarjestelmien kyberturvallisuus on hallittava osana liikenneturvallisuutta. Kyberriskit on sisallytettava riskienhallintaan.",
+      "description": "Transport system cybersecurity shall be managed as part of transport safety. Cyber risks shall be included in risk management.",
+      "category": "Liikennejarjestelmien kyberturvallisuus",
+      "iso_mapping": "5.1",
+      "source_url": "https://vayla.fi/vaylavirasto/tutkimus-ja-kehittaminen/kyberturvallisuus"
+    },
+    {
+      "control_number": "VAYLA-02",
+      "title_nl": "Rataverkon ohjausjarjestelmien suojaus",
+      "title": "Railway control system protection",
+      "description_nl": "Rataverkon ohjaus- ja turvalaitejarjestelmien kyberturvallisuus on varmistettava. Jarjestelmat on eristettava julkisesta verkosta.",
+      "description": "Cybersecurity of railway control and safety systems shall be ensured. Systems shall be isolated from public networks.",
+      "category": "Liikennejarjestelmien kyberturvallisuus",
+      "iso_mapping": "8.22"
+    },
+    {
+      "control_number": "VAYLA-03",
+      "title_nl": "Tieliikenteen ohjausjarjestelmien turvallisuus",
+      "title": "Road traffic control system security",
+      "description_nl": "Tieliikenteen ohjausjarjestelmien (liikennevalot, muuttuvat opasteet) kyberturvallisuus on varmistettava.",
+      "description": "Cybersecurity of road traffic control systems (traffic lights, variable message signs) shall be ensured.",
+      "category": "Liikennejarjestelmien kyberturvallisuus",
+      "iso_mapping": "8.22"
+    },
+    {
+      "control_number": "VAYLA-04",
+      "title_nl": "Meriliikenteen turvajarjestelmien suojaus",
+      "title": "Maritime traffic safety system protection",
+      "description_nl": "VTS-jarjestelmien (Vessel Traffic Service) ja AIS-jarjestelmien (Automatic Identification System) kyberturvallisuus on varmistettava.",
+      "description": "Cybersecurity of VTS (Vessel Traffic Service) and AIS (Automatic Identification System) systems shall be ensured.",
+      "category": "Liikennejarjestelmien kyberturvallisuus",
+      "iso_mapping": "8.20"
+    },
+    {
+      "control_number": "VAYLA-05",
+      "title_nl": "Liikenteen automaation turvallisuus",
+      "title": "Transport automation security",
+      "description_nl": "Liikenteen automaatiojarjestelmien (autonominen liikenne, yhteistoiminnalliset jarjestelmat) kyberturvallisuus on arvioitava.",
+      "description": "Cybersecurity of transport automation systems (autonomous transport, cooperative systems) shall be assessed.",
+      "category": "Liikennejarjestelmien kyberturvallisuus",
+      "iso_mapping": "8.25"
+    },
+    {
+      "control_number": "HVK-01",
+      "title_nl": "Huoltovarmuuskriittisten jarjestelmien suojaaminen",
+      "title": "Security supply critical system protection",
+      "description_nl": "Huoltovarmuuskriittisten tietojarjestelmien ja tietoverkkojen kyberturvallisuus on varmistettava erityistoimenpitein.",
+      "description": "Cybersecurity of security-of-supply-critical information systems and networks shall be ensured with special measures.",
+      "category": "Huoltovarmuus kyberturvallisuus",
+      "iso_mapping": "5.1",
+      "source_url": "https://www.huoltovarmuuskeskus.fi/toimialat/kyberturvallisuus"
+    },
+    {
+      "control_number": "HVK-02",
+      "title_nl": "Kyberharjoitukset",
+      "title": "Cyber exercises",
+      "description_nl": "Huoltovarmuuskriittisten toimijoiden on osallistuttava kansallisiin kyberharjoituksiin (KYHA) valmiutensa testaamiseksi.",
+      "description": "Security-of-supply-critical entities shall participate in national cyber exercises (KYHA) to test their readiness.",
+      "category": "Huoltovarmuus kyberturvallisuus",
+      "iso_mapping": "5.29"
+    },
+    {
+      "control_number": "HVK-03",
+      "title_nl": "Kriittisen infrastruktuurin varautuminen",
+      "title": "Critical infrastructure preparedness",
+      "description_nl": "Kriittisen infrastruktuurin yllapitajien on varauduttava pitkakestoisiin kyberhairiotilanteisiin varatietojarjestelmilla ja manuaalisilla toimintatavoilla.",
+      "description": "Critical infrastructure operators shall prepare for prolonged cyber disruptions with backup systems and manual procedures.",
+      "category": "Huoltovarmuus kyberturvallisuus",
+      "iso_mapping": "5.30"
+    },
+    {
+      "control_number": "HVK-04",
+      "title_nl": "Toimialakohtaiset kyberturvallisuusvaatimukset",
+      "title": "Sector-specific cybersecurity requirements",
+      "description_nl": "Huoltovarmuuskeskus maarittelee toimialakohtaisia kyberturvallisuusvaatimuksia yhteistyossa sektoritoimijoiden kanssa.",
+      "description": "The National Emergency Supply Agency defines sector-specific cybersecurity requirements in collaboration with sector entities.",
+      "category": "Huoltovarmuus kyberturvallisuus"
+    },
+    {
+      "control_number": "LVM-KS-01",
+      "title_nl": "Kyberstrategian toimeenpano",
+      "title": "Cyber strategy implementation",
+      "description_nl": "Liikenne- ja viestintaministeriolla on kyberturvallisuusstrategia, jonka toimeenpanoa valvotaan. Strategia kattaa viestintaverkot, liikennejarjestelmat ja digitaaliset palvelut.",
+      "description": "The Ministry of Transport and Communications has a cybersecurity strategy whose implementation is monitored. The strategy covers communications networks, transport systems, and digital services.",
+      "category": "LVM Kyberstrategia",
+      "source_url": "https://www.lvm.fi/kyberturvallisuus"
+    },
+    {
+      "control_number": "LVM-KS-02",
+      "title_nl": "Kansainvalinen kyberturvallisuusyhteistyo",
+      "title": "International cybersecurity cooperation",
+      "description_nl": "Suomi osallistuu kansainvaliseen kyberturvallisuusyhteistyohon EU:n, NATOn ja pohjoismaisen yhteistyon kautta.",
+      "description": "Finland participates in international cybersecurity cooperation through the EU, NATO, and Nordic cooperation.",
+      "category": "LVM Kyberstrategia"
+    },
+    {
+      "control_number": "SP-01",
+      "title_nl": "Maksujarjestelmien kyberturvallisuus",
+      "title": "Payment system cybersecurity",
+      "description_nl": "Maksujarjestelmien yllapitajien on toteutettava ECB:n CROE-kehikon (Cyber Resilience Oversight Expectations) mukaiset kyberturvallisuustoimenpiteet.",
+      "description": "Payment system operators shall implement cybersecurity measures according to the ECB CROE (Cyber Resilience Oversight Expectations) framework.",
+      "category": "Keskuspankin vaatimukset",
+      "iso_mapping": "5.1",
+      "source_url": "https://www.suomenpankki.fi/fi/rahoitusvakaus/maksujarjestelmat/"
+    },
+    {
+      "control_number": "SP-02",
+      "title_nl": "TIBER-FI-testaus",
+      "title": "TIBER-FI testing",
+      "description_nl": "Merkittavien finanssialan toimijoiden on suoritettava TIBER-FI-kehikon mukainen uhkajohtoinen penetraatiotestaus.",
+      "description": "Significant financial sector entities shall conduct threat-led penetration testing according to the TIBER-FI framework.",
+      "category": "Keskuspankin vaatimukset",
+      "iso_mapping": "8.34"
+    },
+    {
+      "control_number": "SP-03",
+      "title_nl": "Maksujarjestelmien jatkuvuudenhallinta",
+      "title": "Payment system continuity management",
+      "description_nl": "Maksujarjestelmien jatkuvuussuunnitelmien on varmistettava maksamisen jatkuvuus myos merkittavien kyberpoikkeamien aikana.",
+      "description": "Payment system continuity plans shall ensure payment continuity even during significant cyber incidents.",
+      "category": "Keskuspankin vaatimukset",
+      "iso_mapping": "5.29"
+    }
+  ]
+}

@@ -19,7 +19,7 @@
     "test:watch": "vitest",
     "test:contract": "vitest run __tests__/contract/",
     "build:db": "node --import tsx scripts/build-db.ts",
-    "ingest:full": "node --import tsx scripts/ingest-julkri.ts && node --import tsx scripts/ingest-ncsc-fi.ts && node --import tsx scripts/ingest-tietosuoja.ts && node --import tsx scripts/ingest-katakri.ts && node --import tsx scripts/ingest-vahti.ts && node --import tsx scripts/ingest-kanta.ts && npm run build:db && npm run coverage:update",
+    "ingest:full": "node --import tsx scripts/ingest-julkri.ts && node --import tsx scripts/ingest-ncsc-fi.ts && node --import tsx scripts/ingest-tietosuoja.ts && node --import tsx scripts/ingest-katakri.ts && node --import tsx scripts/ingest-vahti.ts && node --import tsx scripts/ingest-kanta.ts && node --import tsx scripts/ingest-traficom.ts && node --import tsx scripts/ingest-dvv.ts && node --import tsx scripts/ingest-kyberturvallisuuslaki.ts && node --import tsx scripts/ingest-finanssivalvonta.ts && node --import tsx scripts/ingest-terveydenhuolto.ts && node --import tsx scripts/ingest-energia-liikenne.ts && node --import tsx scripts/ingest-kansalliset-standardit.ts && npm run build:db && npm run coverage:update",
     "coverage:update": "node --import tsx scripts/update-coverage.ts",
     "coverage:verify": "node --import tsx scripts/verify-coverage.ts",
     "freshness:check": "node --import tsx scripts/check-freshness.ts",

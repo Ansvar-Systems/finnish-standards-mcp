@@ -1,0 +1,314 @@
+// scripts/ingest-kyberturvallisuuslaki.ts
+// Generates controls from Finnish cybersecurity and information management legislation.
+// Source: Finnish Parliament (Eduskunta) — statutory requirements.
+// Covers: Kyberturvallisuuslaki (NIS2 implementation), Tiedonhallintalaki (906/2019),
+// Laki sahkoisen viestinnan palveluista, Turvallisuusselvityslaki.
+
+import { writeFileSync, mkdirSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const DATA_DIR = join(__dirname, '..', 'data', 'extracted');
+const OUTPUT_FILE = join(DATA_DIR, 'kyberturvallisuuslaki.json');
+
+mkdirSync(DATA_DIR, { recursive: true });
+
+interface Control {
+  control_number: string;
+  title_nl: string;
+  title?: string;
+  description_nl: string;
+  description?: string;
+  category: string;
+  subcategory?: string;
+  level?: string;
+  iso_mapping?: string;
+  source_url?: string;
+}
+
+const controls: Control[] = [
+  // === Kyberturvallisuuslaki / NIS2 Finnish Implementation ===
+  {
+    control_number: 'NIS2-FI-01',
+    title_nl: 'Toimijan tunnistaminen',
+    title: 'Entity identification',
+    description_nl: 'Organisaation on arvioitava, kuuluuko se kyberturvallisuuslain soveltamisalaan keskeisena tai tarkeana toimijana. Arviointi perustuu toimialaan ja kokoon.',
+    description: 'The organization shall assess whether it falls within the scope of the Cybersecurity Act as an essential or important entity. Assessment is based on sector and size.',
+    category: 'Kyberturvallisuuslaki (NIS2)',
+    iso_mapping: '5.1',
+    source_url: 'https://www.traficom.fi/fi/viestinta/kyberturvallisuus/nis2',
+  },
+  {
+    control_number: 'NIS2-FI-02',
+    title_nl: 'Kyberturvallisuuden riskienhallinta',
+    title: 'Cybersecurity risk management',
+    description_nl: 'Toimijan on toteutettava asianmukaiset ja oikeasuhtaiset tekniset, operatiiviset ja organisatoriset toimenpiteet verkko- ja tietojarjestelmien turvallisuusriskien hallitsemiseksi.',
+    description: 'An entity shall implement appropriate and proportionate technical, operational, and organizational measures to manage security risks of network and information systems.',
+    category: 'Kyberturvallisuuslaki (NIS2)',
+    iso_mapping: '5.3',
+  },
+  {
+    control_number: 'NIS2-FI-03',
+    title_nl: 'Poikkeamaraportointivelvoite',
+    title: 'Incident reporting obligation',
+    description_nl: 'Merkittavista tietoturvapoikkeamista on ilmoitettava valvontaviranomaiselle (Traficom) 24 tunnin kuluessa havaitsemisesta. Tarkempi raportti on toimitettava 72 tunnin kuluessa.',
+    description: 'Significant security incidents shall be reported to the supervisory authority (Traficom) within 24 hours of detection. A detailed report shall be submitted within 72 hours.',
+    category: 'Kyberturvallisuuslaki (NIS2)',
+    iso_mapping: '5.24',
+  },
+  {
+    control_number: 'NIS2-FI-04',
+    title_nl: 'Johdon vastuu',
+    title: 'Management liability',
+    description_nl: 'Toimijan johdon on hyvaksyttava kyberturvallisuuden riskienhallintatoimenpiteet ja valvottava niiden toteuttamista. Johdon on osallistuttava kyberturvallisuuskoulutukseen.',
+    description: 'Entity management shall approve cybersecurity risk management measures and oversee their implementation. Management shall participate in cybersecurity training.',
+    category: 'Kyberturvallisuuslaki (NIS2)',
+    iso_mapping: '5.2',
+  },
+  {
+    control_number: 'NIS2-FI-05',
+    title_nl: 'Toimitusketjun turvallisuus',
+    title: 'Supply chain security',
+    description_nl: 'Toimijan on huomioitava toimitusketjun kyberturvallisuusriskit ja arvioitava suorien toimittajien tietoturvakaytantoja.',
+    description: 'An entity shall consider supply chain cybersecurity risks and assess the security practices of direct suppliers.',
+    category: 'Kyberturvallisuuslaki (NIS2)',
+    iso_mapping: '5.19',
+  },
+  {
+    control_number: 'NIS2-FI-06',
+    title_nl: 'Haavoittuvuuksien kasittely ja julkistaminen',
+    title: 'Vulnerability handling and disclosure',
+    description_nl: 'Toimijan on toteutettava menettelyt haavoittuvuuksien kasittelyyn, mukaan lukien koordinoitu haavoittuvuuksien julkistaminen.',
+    description: 'An entity shall implement procedures for vulnerability handling, including coordinated vulnerability disclosure.',
+    category: 'Kyberturvallisuuslaki (NIS2)',
+    iso_mapping: '8.8',
+  },
+  {
+    control_number: 'NIS2-FI-07',
+    title_nl: 'Salausmenetelmien kaytto',
+    title: 'Use of encryption',
+    description_nl: 'Toimijan on kaytettava asianmukaisia salausmenetelmia tietojen suojaamiseksi. Salauskaytantojen on oltava ajanmukaisia.',
+    description: 'An entity shall use appropriate encryption methods to protect data. Encryption practices shall be up to date.',
+    category: 'Kyberturvallisuuslaki (NIS2)',
+    iso_mapping: '8.24',
+  },
+  {
+    control_number: 'NIS2-FI-08',
+    title_nl: 'Liiketoiminnan jatkuvuuden hallinta',
+    title: 'Business continuity management',
+    description_nl: 'Toimijan on varmistettava liiketoiminnan jatkuvuus kyberturvallisuuspoikkeamien aikana, mukaan lukien varmuuskopiointi ja toipumissuunnitelmat.',
+    description: 'An entity shall ensure business continuity during cybersecurity incidents, including backup and recovery plans.',
+    category: 'Kyberturvallisuuslaki (NIS2)',
+    iso_mapping: '5.29',
+  },
+  {
+    control_number: 'NIS2-FI-09',
+    title_nl: 'Henkiloston turvallisuus',
+    title: 'Personnel security',
+    description_nl: 'Toimijan on varmistettava henkiloston riittava kyberturvallisuusosaaminen ja -tietoisuus. Koulutus on jarjestettava saannollisesti.',
+    description: 'An entity shall ensure sufficient cybersecurity competence and awareness of personnel. Training shall be provided regularly.',
+    category: 'Kyberturvallisuuslaki (NIS2)',
+    iso_mapping: '6.3',
+  },
+  {
+    control_number: 'NIS2-FI-10',
+    title_nl: 'Monivaiheisen todennuksen kaytto',
+    title: 'Multi-factor authentication usage',
+    description_nl: 'Toimijan on kaytettava monivaiheista todennusta tai jatkuvaa todennusta kriittisissa jarjestelmissa.',
+    description: 'An entity shall use multi-factor authentication or continuous authentication for critical systems.',
+    category: 'Kyberturvallisuuslaki (NIS2)',
+    iso_mapping: '8.5',
+  },
+  {
+    control_number: 'NIS2-FI-11',
+    title_nl: 'Valvontaviranomaisen toimivalta',
+    title: 'Supervisory authority powers',
+    description_nl: 'Traficom toimii kyberturvallisuuslain valvontaviranomaisena. Valvontaviranomaisella on oikeus suorittaa auditointeja ja antaa maarayksia.',
+    description: 'Traficom acts as the supervisory authority under the Cybersecurity Act. The authority has the right to conduct audits and issue orders.',
+    category: 'Kyberturvallisuuslaki (NIS2)',
+  },
+  {
+    control_number: 'NIS2-FI-12',
+    title_nl: 'Hallinnolliset seuraamukset',
+    title: 'Administrative sanctions',
+    description_nl: 'Kyberturvallisuuslain rikkomisesta voidaan maarata hallinnollisia seuraamusmaksuja. Keskeisille toimijoille enimmaissakko on 10 MEUR tai 2 % maailmanlaajuisesta liikevaihdosta.',
+    description: 'Administrative fines may be imposed for breaching the Cybersecurity Act. For essential entities, the maximum fine is EUR 10M or 2% of global turnover.',
+    category: 'Kyberturvallisuuslaki (NIS2)',
+  },
+
+  // === Tiedonhallintalaki 906/2019 (Information Management Act) ===
+  {
+    control_number: 'THL-01',
+    title_nl: 'Tiedonhallinnan jarjestaminen',
+    title: 'Information management organization',
+    description_nl: 'Tiedonhallintayksikon on nimettava tiedonhallinnasta vastaava henkilosto ja maariteltava tiedonhallinnan tehtavat ja vastuut.',
+    description: 'An information management unit shall appoint responsible personnel and define information management tasks and responsibilities.',
+    category: 'Tiedonhallintalaki',
+    iso_mapping: '5.2',
+    source_url: 'https://www.finlex.fi/fi/laki/ajantasa/2019/20190906',
+  },
+  {
+    control_number: 'THL-02',
+    title_nl: 'Tietoturvallisuuden varmistaminen',
+    title: 'Information security assurance',
+    description_nl: 'Tiedonhallintayksikon on huolehdittava tietoaineistojen tietoturvallisuudesta koko niiden elinkaaren ajan asianmukaisilla hallinnollisilla ja teknisilla toimenpiteilla.',
+    description: 'An information management unit shall ensure the security of data assets throughout their lifecycle with appropriate administrative and technical measures.',
+    category: 'Tiedonhallintalaki',
+    iso_mapping: '5.1',
+  },
+  {
+    control_number: 'THL-03',
+    title_nl: 'Julkisuusperiaate ja tiedon saatavuus',
+    title: 'Principle of openness and data availability',
+    description_nl: 'Julkiset tiedot on asetettava saataville avointen rajapintojen kautta, ellei tiedon luonne sita esta. Tiedon saatavuus ja julkisuus on varmistettava.',
+    description: 'Public data shall be made available through open interfaces unless the nature of the data prevents it. Data availability and openness shall be ensured.',
+    category: 'Tiedonhallintalaki',
+    iso_mapping: '5.14',
+  },
+  {
+    control_number: 'THL-04',
+    title_nl: 'Tietojarjestelmien turvallisuusvaatimukset',
+    title: 'Information system security requirements',
+    description_nl: 'Tiedonhallintayksikon on maariteltava tietojarjestelmien tietoturvallisuusvaatimukset ja varmistettava niiden toteutuminen hankinnassa ja kehityksessa.',
+    description: 'An information management unit shall define information system security requirements and ensure their implementation in procurement and development.',
+    category: 'Tiedonhallintalaki',
+    iso_mapping: '8.25',
+  },
+  {
+    control_number: 'THL-05',
+    title_nl: 'Muutostenhallinta',
+    title: 'Change management',
+    description_nl: 'Tietojarjestelmien muutokset on arvioitava tietoturvallisuuden nakoekulmasta ennen toteuttamista.',
+    description: 'Information system changes shall be assessed from a security perspective before implementation.',
+    category: 'Tiedonhallintalaki',
+    iso_mapping: '8.32',
+  },
+
+  // === Laki sahkoisen viestinnan palveluista (Electronic Communications Services Act) ===
+  {
+    control_number: 'SVP-01',
+    title_nl: 'Viestinnan luottamuksellisuus',
+    title: 'Confidentiality of communications',
+    description_nl: 'Viestinnan luottamuksellisuus on suojattava. Viestien sisaltoa ei saa kasitella luvatta.',
+    description: 'Confidentiality of communications shall be protected. Message content shall not be processed without authorization.',
+    category: 'Sahkoisen viestinnan palvelulaki',
+    source_url: 'https://www.finlex.fi/fi/laki/ajantasa/2014/20140917',
+  },
+  {
+    control_number: 'SVP-02',
+    title_nl: 'Teleyrityksen tietoturvavelvoitteet',
+    title: 'Telecommunications operator security obligations',
+    description_nl: 'Teleyrityksen on suojattava viestintaverkkonsa ja -palvelunsa tietoturvallisuutta uhkaavien tekijoiden varalta.',
+    description: 'A telecommunications operator shall protect its communications network and services against security threats.',
+    category: 'Sahkoisen viestinnan palvelulaki',
+    iso_mapping: '5.1',
+  },
+  {
+    control_number: 'SVP-03',
+    title_nl: 'Valiliikennetietojen kasittely',
+    title: 'Traffic data processing',
+    description_nl: 'Valiliikennetietojen kasittely on rajoitettava palvelun tuottamiseen valttamattomaan. Tiedot on haveittava tai anonymisoitava, kun niita ei enaa tarvita.',
+    description: 'Processing of traffic data shall be limited to what is necessary for service delivery. Data shall be destroyed or anonymized when no longer needed.',
+    category: 'Sahkoisen viestinnan palvelulaki',
+    iso_mapping: '5.34',
+  },
+  {
+    control_number: 'SVP-04',
+    title_nl: 'Hairionhallinta ja ilmoittaminen',
+    title: 'Incident management and notification',
+    description_nl: 'Viestintaverkkojen ja -palveluiden merkittavista hairiotilanteista on ilmoitettava Traficomille. Hairion vaikutusalue ja kesto on selvitettava.',
+    description: 'Significant disruptions to communications networks and services shall be reported to Traficom. The impact area and duration of the disruption shall be determined.',
+    category: 'Sahkoisen viestinnan palvelulaki',
+    iso_mapping: '5.24',
+  },
+
+  // === Turvallisuusselvityslaki 726/2014 (Security Clearance Act) ===
+  {
+    control_number: 'TSL-01',
+    title_nl: 'Turvallisuusselvityksen hakeminen',
+    title: 'Security clearance application',
+    description_nl: 'Tyonantajan on haettava turvallisuusselvitysta henkiloille, joilla on paasynhallinta salassa pidettaviin tietoihin tai turvallisuuskriittisiin tehtaviin.',
+    description: 'The employer shall apply for a security clearance for persons with access to classified information or security-critical tasks.',
+    category: 'Turvallisuusselvityslaki',
+    iso_mapping: '6.1',
+    source_url: 'https://www.finlex.fi/fi/laki/ajantasa/2014/20140726',
+  },
+  {
+    control_number: 'TSL-02',
+    title_nl: 'Turvallisuusselvityksen tasot',
+    title: 'Security clearance levels',
+    description_nl: 'Turvallisuusselvityksia on kolme tasoa: suppea, perusmuotoinen ja laaja. Tason valinta perustuu tehtavan turvallisuuskriittisyyteen.',
+    description: 'Security clearances have three levels: limited, basic, and comprehensive. Level selection is based on the security criticality of the task.',
+    category: 'Turvallisuusselvityslaki',
+    iso_mapping: '6.1',
+  },
+  {
+    control_number: 'TSL-03',
+    title_nl: 'Yritysturvallisuusselvitys',
+    title: 'Facility security clearance',
+    description_nl: 'Yritykselle voidaan myontaa yritysturvallisuusselvitys, joka edellyttaa riittavia turvallisuusjarjestelyita toimitiloissa ja tietojarjestelmissa.',
+    description: 'A facility security clearance may be granted to an organization, requiring adequate security arrangements in premises and information systems.',
+    category: 'Turvallisuusselvityslaki',
+    iso_mapping: '7.1',
+  },
+  {
+    control_number: 'TSL-04',
+    title_nl: 'Turvallisuusselvityksen voimassaolo',
+    title: 'Security clearance validity',
+    description_nl: 'Turvallisuusselvitys on voimassa enintaan viisi vuotta. Selvitys on uusittava ennen voimassaolon paattymista, mikali tarve jatkuu.',
+    description: 'A security clearance is valid for a maximum of five years. The clearance shall be renewed before expiry if the need continues.',
+    category: 'Turvallisuusselvityslaki',
+    iso_mapping: '6.1',
+  },
+
+  // === Laki julkisen hallinnon tiedonhallinnasta (Public Sector Information Management Act) ===
+  {
+    control_number: 'JHTL-01',
+    title_nl: 'Tietojenkasittelyoikeuksien hallinta',
+    title: 'Data processing rights management',
+    description_nl: 'Tietojenkasittelyoikeudet on myonnettava tehtavaperustaisesti. Oikeudet on katselmoitava saannollisesti ja muutokset on dokumentoitava.',
+    description: 'Data processing rights shall be granted based on role. Rights shall be reviewed regularly and changes documented.',
+    category: 'Julkisen hallinnon tiedonhallinta',
+    iso_mapping: '5.15',
+  },
+  {
+    control_number: 'JHTL-02',
+    title_nl: 'Tietojen luokittelu',
+    title: 'Data classification',
+    description_nl: 'Viranomaisten on luokiteltava kasittelemansa tiedot julkisuuslainsaadannon mukaisesti. Salassa pidettavat tiedot on merkittava.',
+    description: 'Authorities shall classify data they process according to publicity legislation. Classified data shall be marked.',
+    category: 'Julkisen hallinnon tiedonhallinta',
+    iso_mapping: '5.12',
+  },
+  {
+    control_number: 'JHTL-03',
+    title_nl: 'Tietovarantojen kuvaaminen',
+    title: 'Data repository description',
+    description_nl: 'Viranomaisten on kuvattava yllapitamansa tietovarannot ja niissa kasiteltavat tiedot. Kuvaukset on pidettava ajan tasalla.',
+    description: 'Authorities shall describe the data repositories they maintain and the data processed therein. Descriptions shall be kept up to date.',
+    category: 'Julkisen hallinnon tiedonhallinta',
+    iso_mapping: '5.9',
+  },
+];
+
+const output = {
+  framework: {
+    id: 'kyberturvallisuuslaki',
+    name: 'Finnish Cybersecurity Legislation',
+    name_nl: 'Suomen kyberturvallisuuslainsaadanto',
+    issuing_body: 'Eduskunta / Traficom',
+    version: '2025',
+    effective_date: '2025-01-01',
+    scope: 'Key Finnish cybersecurity and information management legislation: Kyberturvallisuuslaki (NIS2 Finnish implementation), Tiedonhallintalaki (906/2019), Laki sahkoisen viestinnan palveluista, Turvallisuusselvityslaki, and related public sector information management requirements.',
+    scope_sectors: ['government', 'energy', 'telecom', 'transport', 'healthcare', 'finance', 'water', 'digital_infrastructure'],
+    structure_description: 'Organized by statute: Cybersecurity Act (NIS2), Information Management Act, Electronic Communications Services Act, Security Clearance Act, and Public Sector Information Management Act.',
+    source_url: 'https://www.finlex.fi/fi/laki/',
+    license: 'Public sector publication',
+    language: 'fi+en',
+  },
+  controls,
+};
+
+writeFileSync(OUTPUT_FILE, JSON.stringify(output, null, 2));
+console.log(`Kyberturvallisuuslaki: ${controls.length} controls written to ${OUTPUT_FILE}`);

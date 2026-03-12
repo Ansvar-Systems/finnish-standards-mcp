@@ -1,0 +1,250 @@
+// scripts/ingest-dvv.ts
+// Generates DVV (Digi- ja vaestotietovirasto) information management requirements.
+// Source: DVV — Digital and Population Data Services Agency.
+// Covers: Tiedonhallintalaki implementation, public administration information management,
+// Suomi.fi services security, and electronic service security requirements.
+
+import { writeFileSync, mkdirSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const DATA_DIR = join(__dirname, '..', 'data', 'extracted');
+const OUTPUT_FILE = join(DATA_DIR, 'dvv-tiedonhallinta.json');
+
+mkdirSync(DATA_DIR, { recursive: true });
+
+interface Control {
+  control_number: string;
+  title_nl: string;
+  title?: string;
+  description_nl: string;
+  description?: string;
+  category: string;
+  subcategory?: string;
+  level?: string;
+  iso_mapping?: string;
+  implementation_guidance?: string;
+  source_url?: string;
+}
+
+const controls: Control[] = [
+  // === Tiedonhallintalain vaatimukset (Information Management Act Requirements) ===
+  {
+    control_number: 'DVV-THL-01',
+    title_nl: 'Tiedonhallinnan kuvaukset',
+    title: 'Information management descriptions',
+    description_nl: 'Tiedonhallintayksikon on yllapidettava tiedonhallintamallia, joka kuvaa organisaation tietovarannot, tietojarjestelmat ja tietovirrat.',
+    description: 'An information management unit shall maintain an information management model describing the organization data repositories, information systems, and data flows.',
+    category: 'Tiedonhallintalain vaatimukset',
+    iso_mapping: '5.9',
+    source_url: 'https://www.suomidigi.fi/ohjeet-ja-tuki/tiedonhallinta',
+  },
+  {
+    control_number: 'DVV-THL-02',
+    title_nl: 'Tietoaineistojen hallinta',
+    title: 'Data asset management',
+    description_nl: 'Tietoaineistot on luetteloitava ja niiden elinkaari (luominen, sailyttaminen, arkistointi, havittaminen) on hallittava suunnitelmallisesti.',
+    description: 'Data assets shall be inventoried and their lifecycle (creation, storage, archiving, destruction) managed systematically.',
+    category: 'Tiedonhallintalain vaatimukset',
+    iso_mapping: '5.9',
+  },
+  {
+    control_number: 'DVV-THL-03',
+    title_nl: 'Tietoturvallisuustoimenpiteet',
+    title: 'Information security measures',
+    description_nl: 'Tiedonhallintayksikon on toteutettava tietoturvallisuustoimenpiteet, joilla suojataan kasiteltavat tiedot luvattomalta kasittelysta ja varmistetaan tietojen eheys.',
+    description: 'An information management unit shall implement information security measures protecting processed data against unauthorized processing and ensuring data integrity.',
+    category: 'Tiedonhallintalain vaatimukset',
+    iso_mapping: '5.1',
+  },
+  {
+    control_number: 'DVV-THL-04',
+    title_nl: 'Tietojarjestelmien yhteentoimivuus',
+    title: 'Information system interoperability',
+    description_nl: 'Julkisen hallinnon tietojarjestelmien yhteentoimivuus on varmistettava avointen rajapintojen ja yhteisten tietorakenteiden avulla.',
+    description: 'Interoperability of public administration information systems shall be ensured through open interfaces and common data structures.',
+    category: 'Tiedonhallintalain vaatimukset',
+    iso_mapping: '8.25',
+  },
+  {
+    control_number: 'DVV-THL-05',
+    title_nl: 'Rajapintojen tietoturva',
+    title: 'API security',
+    description_nl: 'Tietovarantojen avoimet rajapinnat on suojattava todennuksella ja valtuuttamisella. Rajapintakutsut on lokitettava.',
+    description: 'Open APIs for data repositories shall be secured with authentication and authorization. API calls shall be logged.',
+    category: 'Tiedonhallintalain vaatimukset',
+    iso_mapping: '8.25',
+  },
+  {
+    control_number: 'DVV-THL-06',
+    title_nl: 'Tietojen luovuttaminen teknisen rajapinnan kautta',
+    title: 'Data disclosure through technical interface',
+    description_nl: 'Tietojen luovuttaminen teknisen rajapinnan kautta edellyttaa luovutusperusteen tarkistamista ja luovutustapahtumien lokitusta.',
+    description: 'Data disclosure through a technical interface requires verification of the legal basis for disclosure and logging of disclosure events.',
+    category: 'Tiedonhallintalain vaatimukset',
+    iso_mapping: '5.14',
+  },
+  {
+    control_number: 'DVV-THL-07',
+    title_nl: 'Asianhallinnan tietoturva',
+    title: 'Case management security',
+    description_nl: 'Asiakirjojen ja asioiden kasittely on toteutettava asianhallintajarjestelmassa, joka tayttaa tiedonhallintalain vaatimukset.',
+    description: 'Document and case processing shall be implemented in a case management system meeting Information Management Act requirements.',
+    category: 'Tiedonhallintalain vaatimukset',
+    iso_mapping: '5.12',
+  },
+  {
+    control_number: 'DVV-THL-08',
+    title_nl: 'Arkistoinnin turvallisuus',
+    title: 'Archiving security',
+    description_nl: 'Sahkoisten asiakirjojen sailytys ja arkistointi on toteutettava siten, etta tietojen eheys ja saatavuus varmistetaan koko sailytysajan.',
+    description: 'Electronic document storage and archiving shall be implemented to ensure data integrity and availability throughout the retention period.',
+    category: 'Tiedonhallintalain vaatimukset',
+    iso_mapping: '5.33',
+  },
+
+  // === Suomi.fi-palveluiden tietoturva (Suomi.fi Services Security) ===
+  {
+    control_number: 'DVV-SFI-01',
+    title_nl: 'Suomi.fi-tunnistuksen kaytto',
+    title: 'Suomi.fi identification usage',
+    description_nl: 'Julkisen hallinnon sahkoisissa asiointipalveluissa on kaytettava Suomi.fi-tunnistusta tai vastaavaa luotettavaa sahkoista tunnistamista.',
+    description: 'Public administration electronic services shall use Suomi.fi identification or equivalent reliable electronic identification.',
+    category: 'Suomi.fi-palveluiden tietoturva',
+    iso_mapping: '8.5',
+    source_url: 'https://www.suomidigi.fi/palvelut/suomifi-tunnistus',
+  },
+  {
+    control_number: 'DVV-SFI-02',
+    title_nl: 'Suomi.fi-valtuudet',
+    title: 'Suomi.fi authorizations',
+    description_nl: 'Sahkoisessa asioinnissa on hyodynnettava Suomi.fi-valtuuksia toisen puolesta asioinnin mahdollistamiseksi.',
+    description: 'Electronic services shall use Suomi.fi authorizations to enable acting on behalf of another person.',
+    category: 'Suomi.fi-palveluiden tietoturva',
+    iso_mapping: '5.15',
+  },
+  {
+    control_number: 'DVV-SFI-03',
+    title_nl: 'Suomi.fi-viestit turvallisuus',
+    title: 'Suomi.fi messages security',
+    description_nl: 'Suomi.fi-viestien kaytossa on noudatettava maariteltya tietoturvallisuustasoa. Viestit on salattava siirrossa.',
+    description: 'Suomi.fi messages usage shall follow the defined security level. Messages shall be encrypted in transit.',
+    category: 'Suomi.fi-palveluiden tietoturva',
+    iso_mapping: '8.24',
+  },
+  {
+    control_number: 'DVV-SFI-04',
+    title_nl: 'Suomi.fi-palveluvayla',
+    title: 'Suomi.fi service bus (X-Road)',
+    description_nl: 'Organisaatioiden valinen tiedonvaihto on toteutettava Suomi.fi-palveluvayla (X-Road) kautta, joka tarjoaa teknisen luottamusverkon.',
+    description: 'Inter-organizational data exchange shall be implemented through the Suomi.fi service bus (X-Road), which provides a technical trust network.',
+    category: 'Suomi.fi-palveluiden tietoturva',
+    iso_mapping: '8.20',
+  },
+  {
+    control_number: 'DVV-SFI-05',
+    title_nl: 'Palveluvaylaliittyman turvallisuus',
+    title: 'Service bus connection security',
+    description_nl: 'Palveluvaylaliittyman tietoturva on varmistettava: TLS-salaus, varmenteenhallinta, kayttooikeuksien hallinta ja lokitus.',
+    description: 'Service bus connection security shall be ensured: TLS encryption, certificate management, access management, and logging.',
+    category: 'Suomi.fi-palveluiden tietoturva',
+    iso_mapping: '8.24',
+  },
+
+  // === Sahkoisen asioinnin tietoturva (eService Security) ===
+  {
+    control_number: 'DVV-EASI-01',
+    title_nl: 'Sahkoisen asioinnin riskiarviointi',
+    title: 'eService risk assessment',
+    description_nl: 'Sahkoisen asiointipalvelun riskiarviointi on suoritettava ennen palvelun avaamista kayttajille. Arvioinnin on katettava tietoturva-, tietosuoja- ja saavutettavuusriskit.',
+    description: 'An eService risk assessment shall be conducted before opening the service to users. Assessment shall cover security, privacy, and accessibility risks.',
+    category: 'Sahkoisen asioinnin tietoturva',
+    iso_mapping: '5.3',
+  },
+  {
+    control_number: 'DVV-EASI-02',
+    title_nl: 'Sahkoisen asioinnin todennus',
+    title: 'eService authentication',
+    description_nl: 'Sahkoisen asioinnin todennuksen vahvuustaso on maariteltava palvelun riskiarvioinnin perusteella. Vahva sahkoinen tunnistaminen on vaadittava korkean riskin palveluissa.',
+    description: 'eService authentication strength level shall be defined based on service risk assessment. Strong electronic identification shall be required for high-risk services.',
+    category: 'Sahkoisen asioinnin tietoturva',
+    iso_mapping: '8.5',
+  },
+  {
+    control_number: 'DVV-EASI-03',
+    title_nl: 'Sahkoisten lomakkeiden turvallisuus',
+    title: 'Electronic form security',
+    description_nl: 'Sahkoisten lomakkeiden syotteet on validoitava palvelinpuolella. Lomakkeet on suojattava CSRF-hyokkaykselta ja injektiolta.',
+    description: 'Electronic form inputs shall be validated server-side. Forms shall be protected against CSRF attacks and injection.',
+    category: 'Sahkoisen asioinnin tietoturva',
+    iso_mapping: '8.25',
+  },
+  {
+    control_number: 'DVV-EASI-04',
+    title_nl: 'Asiointitapahtumien lokitus',
+    title: 'eService transaction logging',
+    description_nl: 'Sahkoisten asiointitapahtumien on oltava jaljitettavissa. Lokitietojen on sisallettava tunnistetiedot, aikaleima ja tapahtuman tyyppi.',
+    description: 'Electronic service transactions shall be traceable. Log data shall include identification information, timestamp, and transaction type.',
+    category: 'Sahkoisen asioinnin tietoturva',
+    iso_mapping: '8.15',
+  },
+  {
+    control_number: 'DVV-EASI-05',
+    title_nl: 'Sahkoisen asioinnin saavutettavuus',
+    title: 'eService accessibility',
+    description_nl: 'Sahkoisten asiointipalveluiden saavutettavuuden on taytettava saavutettavuusdirektiivin (WCAG 2.1 AA) vaatimukset.',
+    description: 'eService accessibility shall meet the Accessibility Directive (WCAG 2.1 AA) requirements.',
+    category: 'Sahkoisen asioinnin tietoturva',
+  },
+
+  // === Tietoturvallisuuden arviointi (Security Assessment) ===
+  {
+    control_number: 'DVV-ARV-01',
+    title_nl: 'Tietoturvallisuuden arvioinnin suorittaminen',
+    title: 'Security assessment execution',
+    description_nl: 'Tiedonhallintayksikon on suoritettava tietoturvallisuuden arviointi vahintaan kerran kolmessa vuodessa tai merkittavien muutosten yhteydessa.',
+    description: 'An information management unit shall conduct a security assessment at least once every three years or when significant changes occur.',
+    category: 'Tietoturvallisuuden arviointi',
+    iso_mapping: '5.35',
+  },
+  {
+    control_number: 'DVV-ARV-02',
+    title_nl: 'Tietoturvallisuustason todentaminen',
+    title: 'Security level verification',
+    description_nl: 'Organisaation on pystyttava todentamaan toteutettu tietoturvallisuustaso. Todentaminen voi perustua itsearviointiin tai ulkoiseen arviointiin.',
+    description: 'The organization shall be able to verify its implemented security level. Verification can be based on self-assessment or external assessment.',
+    category: 'Tietoturvallisuuden arviointi',
+    iso_mapping: '5.35',
+  },
+  {
+    control_number: 'DVV-ARV-03',
+    title_nl: 'Korjaavat toimenpiteet',
+    title: 'Corrective actions',
+    description_nl: 'Arvioinnissa havaittuihin puutteisiin on laadittava korjaussuunnitelma ja toimenpiteet on toteutettava maaraajassa.',
+    description: 'A remediation plan shall be prepared for deficiencies identified in assessment and actions implemented within the defined timeframe.',
+    category: 'Tietoturvallisuuden arviointi',
+    iso_mapping: '5.36',
+  },
+];
+
+const output = {
+  framework: {
+    id: 'dvv-tiedonhallinta',
+    name: 'DVV Information Management Requirements',
+    name_nl: 'DVV:n tiedonhallintavaatimukset',
+    issuing_body: 'Digi- ja vaestotietovirasto (DVV)',
+    version: '2024',
+    effective_date: '2024-01-01',
+    scope: 'Information management requirements from DVV implementing the Information Management Act (Tiedonhallintalaki 906/2019). Covers data management, Suomi.fi service security, eService security, and security assessment for public administration.',
+    scope_sectors: ['government'],
+    structure_description: 'Organized by domain: Information Management Act requirements, Suomi.fi services security, eService security, and security assessment.',
+    source_url: 'https://www.suomidigi.fi/ohjeet-ja-tuki/tiedonhallinta',
+    license: 'Public sector publication',
+    language: 'fi+en',
+  },
+  controls,
+};
+
+writeFileSync(OUTPUT_FILE, JSON.stringify(output, null, 2));
+console.log(`DVV: ${controls.length} controls written to ${OUTPUT_FILE}`);

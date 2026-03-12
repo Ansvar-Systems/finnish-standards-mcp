@@ -134,3 +134,157 @@ sources:
     languages:
       - "fi"
       - "en"
+
+  - name: "Traficomin kyberturvallisuusmaaraykset ja -suositukset"
+    authority: "Liikenne- ja viestintavirasto Traficom"
+    official_url: "https://www.traficom.fi/fi/viestinta/kyberturvallisuus"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF/HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "Finnish government public document — free to reference"
+    coverage:
+      scope: "Telecom network security regulations, IoT, cloud, DNS, email, EUCC certification, situational awareness"
+      version: "2024 edition"
+      item_count: 39
+    languages:
+      - "fi"
+      - "en"
+
+  - name: "DVV:n tiedonhallintavaatimukset"
+    authority: "Digi- ja vaestotietovirasto (DVV)"
+    official_url: "https://www.suomidigi.fi/ohjeet-ja-tuki/tiedonhallinta"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF/HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "Finnish government public document — free to reference"
+    coverage:
+      scope: "Tiedonhallintalaki implementation, Suomi.fi security, eService security, security assessment"
+      version: "2024 edition"
+      item_count: 21
+    languages:
+      - "fi"
+      - "en"
+
+  - name: "Suomen kyberturvallisuuslainsaadanto"
+    authority: "Eduskunta / Traficom"
+    official_url: "https://www.finlex.fi/fi/laki/"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2025"
+    effective_date: "2025-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "Finnish legislation — free to reference"
+    coverage:
+      scope: "Kyberturvallisuuslaki (NIS2), Tiedonhallintalaki, Sahkoisen viestinnan palvelulaki, Turvallisuusselvityslaki"
+      version: "2025 edition"
+      item_count: 28
+    languages:
+      - "fi"
+      - "en"
+
+  - name: "Finanssivalvonnan ICT- ja kyberturvallisuusvaatimukset"
+    authority: "Finanssivalvonta (FIN-FSA)"
+    official_url: "https://www.finanssivalvonta.fi/saantely/maaraykset-ja-ohjeet/"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF/HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2025"
+    effective_date: "2025-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "Finnish financial supervisory authority public document — free to reference"
+    coverage:
+      scope: "ICT risk management, operational risk, outsourcing, DORA implementation, security baseline"
+      version: "2025 edition"
+      item_count: 26
+    languages:
+      - "fi"
+      - "en"
+
+  - name: "Terveydenhuollon tietojarjestelmien tietoturvavaatimukset"
+    authority: "THL / Valvira / STM"
+    official_url: "https://thl.fi/tietojarjestelmapalvelut"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF/HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "Finnish health authority public document — free to reference"
+    coverage:
+      scope: "Electronic prescriptions, patient information systems, Valvira requirements, STM guidance, Kanta certification, regional health IT"
+      version: "2024 edition"
+      item_count: 26
+    languages:
+      - "fi"
+      - "en"
+
+  - name: "Energia- ja liikennesektorin kyberturvallisuusvaatimukset"
+    authority: "Energiavirasto / Vaylavirasto / HVK / LVM / Suomen Pankki"
+    official_url: "https://energiavirasto.fi/"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF/HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "Finnish government public document — free to reference"
+    coverage:
+      scope: "Energy sector, transport infrastructure, emergency supply, transport ministry cyber strategy, payment systems"
+      version: "2024 edition"
+      item_count: 22
+    languages:
+      - "fi"
+      - "en"
+
+  - name: "Suomen kansalliset standardit ja suositukset"
+    authority: "SFS / JUHTA / Kuntaliitto / Hyvinvointialueet"
+    official_url: "https://sfs.fi/standardit/"
+    api_url: null
+    retrieval_method: "BULK_DOWNLOAD"
+    format: "PDF/HTML"
+    authentication: "none"
+    update_frequency: "annual"
+    version: "2024"
+    effective_date: "2024-01-01"
+    license:
+      type: "Public sector publication"
+      url: null
+      summary: "Finnish standards and public sector recommendations — free to reference"
+    coverage:
+      scope: "ISO 27001 Finnish adoption, SFS 5900, JHS recommendations, municipal security, hospital district baselines, defence forces public guidance"
+      version: "2024 edition"
+      item_count: 23
+    languages:
+      - "fi"
+      - "en"
