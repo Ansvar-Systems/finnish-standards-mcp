@@ -1,3 +1,4 @@
+import { buildCitation } from '../citation-universal.js';
 // src/tools/get-control.ts
 import { getDb } from '../db.js';
 import { successResponse, errorResponse } from '../response-meta.js';
@@ -49,10 +50,10 @@ export function handleGetControl(args: { control_id?: string }) {
 
   const lines: string[] = [];
 
-  // Heading: control number + Finnish title
+  // Heading: control number + Dutch title
   lines.push(`## ${row.control_number} — ${row.title_nl}`);
 
-  // English title if different from Finnish
+  // English title if different from Dutch
   if (row.title && row.title !== row.title_nl) {
     lines.push(`*${row.title}*`);
   }
@@ -86,7 +87,7 @@ export function handleGetControl(args: { control_id?: string }) {
 
   // Bilingual descriptions
   if (row.description_nl) {
-    lines.push('### Kuvaus (FI)');
+    lines.push('### Beschrijving (NL)');
     lines.push(row.description_nl);
     lines.push('');
   }
@@ -116,5 +117,13 @@ export function handleGetControl(args: { control_id?: string }) {
     lines.push(`**Source:** ${row.source_url}`);
   }
 
-  return successResponse(lines.join('\n'));
+  const _citation = buildCitation(
+    `${row.framework_name} ${row.control_number}`,
+    `${row.control_number} — ${row.title_nl ?? row.title}`,
+    'get_control',
+    { control_id: control_id.trim() },
+    row.source_url ?? null,
+    row.title && row.title !== row.title_nl ? [row.title] : [],
+  );
+  return { ...successResponse(lines.join('\n')), _citation };
 }

@@ -1,4 +1,5 @@
 // src/tools/search-controls.ts
+import { buildCitation } from '../citation-universal.js';
 import { getDb } from '../db.js';
 import { successResponse, errorResponse } from '../response-meta.js';
 
@@ -121,7 +122,7 @@ export function handleSearchControls(args: {
   lines.push('|----|---------|-------|-----------|----------|-------|');
 
   for (const row of rows) {
-    // Decision 1: EN preferred if available, fall back to FI (Finnish-only controls never hidden)
+    // Decision 1: EN preferred if available, fall back to NL (Dutch-only controls never hidden)
     const displayTitle = useEnglish
       ? (row.title ?? row.title_nl ?? '')
       : (row.title_nl ?? row.title ?? '');
@@ -135,5 +136,14 @@ export function handleSearchControls(args: {
     );
   }
 
-  return successResponse(lines.join('\n'));
+  const _citations = rows.map((row) =>
+    buildCitation(
+      `${row.framework_id} ${row.control_number}`,
+      `${row.control_number} — ${(useEnglish ? (row.title ?? row.title_nl) : (row.title_nl ?? row.title)) ?? ''}`,
+      'get_control',
+      { control_id: row.id },
+    ),
+  );
+
+  return { ...successResponse(lines.join('\n')), _citations };
 }

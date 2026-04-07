@@ -1,4 +1,5 @@
 // src/tools/get-iso-mapping.ts
+import { buildCitation } from '../citation-universal.js';
 import { getDb } from '../db.js';
 import { successResponse, errorResponse } from '../response-meta.js';
 
@@ -41,7 +42,7 @@ export function handleGetIsoMapping(args: { iso_control?: string }) {
 
   if (rows.length === 0) {
     return errorResponse(
-      `No Finnish controls are mapped to ISO 27002 control '${isoControl}'.`,
+      `No Dutch controls are mapped to ISO 27002 control '${isoControl}'.`,
       'NO_MATCH'
     );
   }
@@ -58,7 +59,7 @@ export function handleGetIsoMapping(args: { iso_control?: string }) {
 
   const lines: string[] = [];
 
-  lines.push(`## ISO 27002 Control ${isoControl} — Finnish Framework Mapping`);
+  lines.push(`## ISO 27002 Control ${isoControl} — Dutch Framework Mapping`);
   lines.push('');
   lines.push(`total_results: ${rows.length}`);
   lines.push('');
@@ -76,5 +77,14 @@ export function handleGetIsoMapping(args: { iso_control?: string }) {
     }
   }
 
-  return successResponse(lines.join('\n'));
+  const _citations = rows.map((row) =>
+    buildCitation(
+      `${row.framework_id} ${row.control_number}`,
+      `${row.control_number} — ${row.title_nl ?? row.title ?? ''}`,
+      'get_control',
+      { control_id: row.id },
+    ),
+  );
+
+  return { ...successResponse(lines.join('\n')), _citations };
 }
